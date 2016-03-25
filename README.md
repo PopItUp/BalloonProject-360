@@ -1,5 +1,3 @@
-# BalloonProject-360
-
 #BalloonProject-360 - *PopItUp*
 
 **PopItUp** is a fun and suspenseful game to test your dice rolling skills! 
@@ -13,7 +11,6 @@ The following functionality is completed:
 - [ ] 
 - [ ] 
 - [ ] 
-- [ ]
 
 
 ## Notes
