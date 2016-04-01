@@ -1,4 +1,4 @@
-#BalloonProject-360 - *PopItUp*
+#*PopItUp*
 
 **PopItUp** is a fun and suspenseful game to test your dice rolling skills! 
 
@@ -46,7 +46,7 @@ Group Project for CSE360 - Intro to Software Engineering
 
 ## License
 
-    Copyright [2016] [Anisha Gupta]
+    Copyright [2016] [Anisha Gupta, Jorge Roldan, Akhila Murella, Michaela Foote]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -59,4 +59,3 @@ Group Project for CSE360 - Intro to Software Engineering
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-limitations under the License.
