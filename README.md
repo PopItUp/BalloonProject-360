@@ -2,10 +2,12 @@
 
 **PopItUp** is a fun and suspenseful game to test your dice rolling skills! 
 
+Check out our website at PopItUp.github.io
+
 
 ## User Stories
 
-The following functionality is completed:
+The following functionality will be completed:
 
 Unregistered Users:
 - [ ] As an unregistered user, I want to be able to register as a player so my statistics can be recorded.
@@ -38,6 +40,12 @@ Database:
 - [ ] As a database, I want to be able to store players’ statistics so they can access their latest progress in the game.
 - [ ] As a database, I want to be able to refresh players’ statistics when the administrator makes changes to the statistics. 
 - [ ] As a database, I want to be able to calculate players’ rankings from their statistics so they can gauge their progress among          other players.
+
+## Use Case Diagram
+
+Here's a Use Case Diagram of implemented User Stories:
+
+<img src='http://i.imgur.com/bQSG6VB.png' title='Use Case Diagram' width='' alt='Use Case Diagram' />
 
 
 ## Notes
