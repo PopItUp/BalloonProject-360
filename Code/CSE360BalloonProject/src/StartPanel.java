@@ -27,7 +27,7 @@ public class StartPanel extends JPanel
 		
 		picture = new JLabel(new ImageIcon("balloons.gif"));
 		
-		startMessage = new JLabel("Press Begin to begin: ");
+		startMessage = new JLabel("Press Start to begin: ");
 		startMessage.setFont(new Font("Serif", Font.BOLD, 30));
 		
 		wholePanel.add(welcomeMessage, Box.CENTER_ALIGNMENT);

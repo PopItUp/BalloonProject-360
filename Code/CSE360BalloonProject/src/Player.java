@@ -1,5 +1,6 @@
 
 public class Player {
+	
 	Dice Pl1 = new Dice();
 	Dice Pl2 = new Dice();
 	Dice Pl3= new Dice();

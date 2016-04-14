@@ -13,8 +13,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JApplet;
-import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
  
 @SuppressWarnings("serial")
@@ -24,7 +24,8 @@ public class BalloonGame extends JApplet
 	private JPanel cards, wholePanel;
 	private StartPanel start;
 	private GamePanel game; 
-	private JButton begin;
+	private StatisticsPanel stats; 
+	private JRadioButton begin, home, statistics;
 
 	
  public void init()
@@ -35,21 +36,33 @@ public class BalloonGame extends JApplet
    
     start = new StartPanel();
     game = new GamePanel(); 
+    stats = new StatisticsPanel(); 
     
     wholePanel = new JPanel();
 	
-	begin = new JButton("Start!");
+	begin = new JRadioButton("Start!");
 	begin.setFont(new Font("Serif", Font.BOLD, 30));
+	home = new JRadioButton("Go Back!");
+	home.setFont(new Font("Serif", Font.BOLD, 30));
+	statistics = new JRadioButton("Statistics!");
+	statistics.setFont(new Font("Serif", Font.BOLD, 30));
 	
 	ButtonGroup group = new ButtonGroup();
 	group.add(begin);
+	group.add(home);
+	group.add(statistics);
 	
-	ButtonListener listener = new ButtonListener();
+	RadioButtonListener listener = new RadioButtonListener();
 	begin.addActionListener(listener);
+	home.addActionListener(listener);
+	statistics.addActionListener(listener);
 	
 	wholePanel.setLayout(new GridLayout(1,3));
 
+	wholePanel.add(home);
 	wholePanel.add(begin);
+	wholePanel.add(statistics);
+	home.setVisible(false);
 	
 	this.setLayout(new BorderLayout());
 	this.add(wholePanel, BorderLayout.SOUTH);    
@@ -57,12 +70,13 @@ public class BalloonGame extends JApplet
     
     cards.add(start, "StartPanel");
     cards.add(game,"GamePanel");
+    cards.add(stats,"StatisticsPanel");
     
     CardLayout card1 = (CardLayout)(cards.getLayout());
 	card1.show(cards, "StartPanel");
 		
   }
-	 private class ButtonListener implements ActionListener
+	 private class RadioButtonListener implements ActionListener
 	 {
 	  public void actionPerformed(ActionEvent event)
 	   {
@@ -72,6 +86,21 @@ public class BalloonGame extends JApplet
 		  	{
 		  		CardLayout card1 = (CardLayout)(cards.getLayout());
 		 	    card1.show(cards, "GamePanel");	
+		 	    home.setVisible(true);
+		  	}
+		  	
+		  	if(source == home)
+		  	{
+		  		CardLayout card1 = (CardLayout)(cards.getLayout());
+		  		card1.show(cards, "StartPanel");	
+		  		home.setVisible(false);
+		  	}
+		  	
+		  	if(source == statistics)
+		  	{
+		  		CardLayout card1 = (CardLayout)(cards.getLayout());
+		  		card1.show(cards, "StatisticsPanel");
+		  		home.setVisible(true);
 		  	}
 		
 	   } //end of actionPerformed method

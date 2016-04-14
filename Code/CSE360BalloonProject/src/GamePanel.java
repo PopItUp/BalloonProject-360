@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel
 {
 	private JPanel wholePanel, winPanel;
-	private JButton victory;
+	private JButton victory, rollDicePlayer1;
 	private JLabel win, test;
 
 	public GamePanel()
@@ -27,7 +27,6 @@ public class GamePanel extends JPanel
 
 		wholePanel = new JPanel();
 		winPanel = new JPanel();
-		
 		
 		test = new JLabel("You have reached the game panel!");
 		win = new JLabel("YOU WIN! Click to Restart.");
@@ -62,7 +61,6 @@ public class GamePanel extends JPanel
 					add(winPanel);
 				}
 				
-			
 				updateUI();
 			}
 		}
