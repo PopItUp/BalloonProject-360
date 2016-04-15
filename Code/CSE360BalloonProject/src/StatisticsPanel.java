@@ -2,7 +2,7 @@
 // Name: PopItUp
 // Description: GamePanel is a panel created to feature a 
 //				the PopItUp game
-
+//package cse360BalloonGame;
 import java.awt.BorderLayout;
 
 import java.awt.Font;

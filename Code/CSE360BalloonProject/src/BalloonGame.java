@@ -3,7 +3,7 @@
 // Description: BalloonGame extends JApplet and acts as the main
 //				panel to control the CardLayout panel which switches
 //				once a difficulty is specified or area is specified
-
+//package cse360BalloonGame;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Font;
@@ -27,7 +27,6 @@ public class BalloonGame extends JApplet
 	private StatisticsPanel stats; 
 	private JRadioButton begin, home, statistics;
 
-	
  public void init()
   {
     setSize (WIDTH, HEIGHT);

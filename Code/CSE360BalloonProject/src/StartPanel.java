@@ -3,7 +3,7 @@
 // Description:StartPanel is a panel that features the title of the 
 //				program, a GIF, and a direction to prompt the user to
 //				proceed to the game
-
+//package cse360BalloonGame;
 import java.awt.Font;
 import java.awt.GridLayout;
 

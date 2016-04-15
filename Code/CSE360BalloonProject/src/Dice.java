@@ -1,19 +1,24 @@
-public class Dice {
-	
-	private int sum;
-	public int add(int in)
+//package cse360BalloonGame;
+public class Dice 
+{
+	public boolean past = false;
+	private int sum = 0;
+	public void add(int in)
 	{
-		sum = 0;
-		while(in % 2==0)
+		if(in % 2==0)
 		{
 			sum += in;
 			if(sum >= 20)
 			{
 				System.out.println("The balloon is popped");
+				past = true;
 			}
-			return sum;
 		}
-		return in;
+	}
+	
+	public int returnSum()
+	{
+		return sum;
 	}
 	
 }
