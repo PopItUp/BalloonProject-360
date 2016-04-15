@@ -3,18 +3,16 @@
 // Description: GamePanel is a panel created to feature a 
 //				the PopItUp game
 //package cse360BalloonGame;
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class GamePanel extends JPanel
 {
@@ -32,10 +30,9 @@ public class GamePanel extends JPanel
 		winPanel = new JPanel();
 		rollPanel = new JPanel();
 		rollEntirePanel = new JPanel();
-		test = new JLabel("You have reached the game panel!");
+		test = new JLabel("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+				+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
 		test2 = new JLabel(" ");
-		win = new JLabel("YOU WIN! Click to Restart.");
-		win.setFont(new Font("Serif", Font.BOLD, 80));
 		
 		rollDicePlayer1 = new JButton("Roll for Player 1");
 		rollDicePlayer2 = new JButton("Roll for Player 2");
@@ -43,18 +40,26 @@ public class GamePanel extends JPanel
 		rollDicePlayer4 = new JButton("Roll for Player 4");
 		
 		player1 = new JLabel("Player1");
+		player1.setHorizontalAlignment(SwingConstants.CENTER);
+		player1.setVerticalAlignment(SwingConstants.CENTER);
 		player2 = new JLabel("Player2");
+		player2.setHorizontalAlignment(SwingConstants.CENTER);
+		player2.setVerticalAlignment(SwingConstants.CENTER);
 		player3 = new JLabel("Player3");
+		player3.setHorizontalAlignment(SwingConstants.CENTER);
+		player3.setVerticalAlignment(SwingConstants.CENTER);
 		player4 = new JLabel("Player4");
+		player4.setHorizontalAlignment(SwingConstants.CENTER);
+		player4.setVerticalAlignment(SwingConstants.CENTER);
 		
-		wholePanel.setLayout(new GridLayout(2,2));
+		wholePanel.setLayout(new GridLayout(2,1));
 		wholePanel.add(test);
 		
 		rollEntirePanel.setLayout(new FlowLayout());
 		rollEntirePanel.add(test2);
 		rollEntirePanel.add(rollPanel);
 		
-		rollPanel.setLayout(new GridLayout(4,2));
+		rollPanel.setLayout(new GridLayout(4,1));
 		rollPanel.add(rollDicePlayer1);
 		rollPanel.add(rollDicePlayer2);
 		rollPanel.add(player1);
@@ -64,14 +69,9 @@ public class GamePanel extends JPanel
 		rollPanel.add(player3);
 		rollPanel.add(player4);
 		
-		winPanel.setLayout(new BorderLayout());	
-		winPanel.add(win, BorderLayout.NORTH);
-		winPanel.setVisible(false);
-		
 		setLayout(new GridLayout(1,1));
 		add(wholePanel);
 		wholePanel.add(rollPanel);
-		add(winPanel);
 
 		ButtonListener listener = new ButtonListener();
 		rollDicePlayer1.addActionListener(listener);
@@ -96,10 +96,15 @@ public class GamePanel extends JPanel
 					if(Player.returnSumPlayer(1) >= 20 && won == false)
 					{
 						player1.setText("Player 1:" + Player.returnSumPlayer(1));
-						winPanel.setVisible(true);
+						test.setText("Player 1 WINS!");
+						test.setFont(new Font("Serif", Font.BOLD, 80));
+						test.setHorizontalAlignment(SwingConstants.CENTER);
+						test.setVerticalAlignment(SwingConstants.CENTER);
 						won = true;
 					}
 					else
+						player1.setHorizontalAlignment(SwingConstants.CENTER);
+						player1.setVerticalAlignment(SwingConstants.CENTER);
 						player1.setText("Player 1:" + Player.returnSumPlayer(1));
 				}
 				else if(source == rollDicePlayer2)
@@ -108,7 +113,10 @@ public class GamePanel extends JPanel
 					if(Player.returnSumPlayer(2) >= 20 && won == false)
 					{
 						player2.setText("Player 2:" + Player.returnSumPlayer(2));
-						winPanel.setVisible(true);
+						test.setText("Player 2 WINS!");
+						test.setFont(new Font("Serif", Font.BOLD, 80));
+						test.setHorizontalAlignment(SwingConstants.CENTER);
+						test.setVerticalAlignment(SwingConstants.CENTER);
 						won = true;
 					}	
 					else
@@ -120,7 +128,10 @@ public class GamePanel extends JPanel
 					if(Player.returnSumPlayer(3) >= 20 && won == false)
 					{
 						player3.setText("Player 3:" + Player.returnSumPlayer(3));
-						winPanel.setVisible(true);
+						test.setText("Player 3 WINS!");
+						test.setFont(new Font("Serif", Font.BOLD, 80));
+						test.setHorizontalAlignment(SwingConstants.CENTER);
+						test.setVerticalAlignment(SwingConstants.CENTER);
 						won = true;
 					}
 					else
@@ -132,7 +143,10 @@ public class GamePanel extends JPanel
 					if(Player.returnSumPlayer(4) >= 20 && won == false)
 					{
 						player4.setText("Player 4:" + Player.returnSumPlayer(4));
-						winPanel.setVisible(true);
+						test.setText("Player 4 WINS!");
+						test.setFont(new Font("Serif", Font.BOLD, 80));
+						test.setHorizontalAlignment(SwingConstants.CENTER);
+						test.setVerticalAlignment(SwingConstants.CENTER);
 						won = true;
 					}
 					else

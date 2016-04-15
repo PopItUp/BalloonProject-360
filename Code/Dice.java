@@ -10,17 +10,9 @@ public class Dice
 			sum += in;
 			if(sum >= 20)
 			{
-				System.out.print("The balloon is popped");
+				System.out.println("The balloon is popped");
 				past = true;
 			}
-			else
-			{
-				System.out.print("The balloon is not popped");
-			}
-		}
-		else if(sum < 20)
-		{
-				System.out.print("The balloon is not popped");
 		}
 	}
 	
