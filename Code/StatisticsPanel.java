@@ -1,3 +1,8 @@
+// CSE 360 Project
+// Name: PopItUp
+// Description: GamePanel is a panel created to feature a 
+//				the PopItUp game
+//package cse360BalloonGame;
 import java.awt.BorderLayout;
 
 import java.awt.Font;
@@ -18,53 +23,62 @@ import javax.swing.JPanel;
  */
 public class StatisticsPanel extends JPanel
 {
-	private JPanel wholePanel, winPanel;
+	private JPanel wholePanel, rankPanel;
 	private JButton victory;
-	private JLabel win, test;
+	private JLabel test, p1, p2, p3, p4, p1rank, p2rank, p3rank, p4rank, p1rolls, p2rolls, p3rolls, p4rolls, rollsAre, ranksAre, blank;
 
 	/** StatisticsPanel - constructor that initializes and sets all the instance variables **/ 
 	public StatisticsPanel()
 	{
 		wholePanel = new JPanel();
-		winPanel = new JPanel();
-		
+		rankPanel = new JPanel();
+		blank = new JLabel("");
 		test = new JLabel("You have reached the statistics panel!");
-		win = new JLabel("YOU WIN! Click to Restart.");
-		win.setFont(new Font("Serif", Font.BOLD, 80));
+		p1 = new JLabel("PLayer 1: ");
+		p2 = new JLabel("PLayer 2: ");
+		p3 = new JLabel("PLayer 3: ");
+		p4 = new JLabel("PLayer 4: ");
 		
-		victory = new JButton("Press this to win");
+		rollsAre = new JLabel("Rolls:");
+		ranksAre = new JLabel("Rank:");
+
+		p1rolls = new JLabel("" + Player.getRolls(1));
+		p2rolls = new JLabel("" + Player.getRolls(2));
+		p3rolls = new JLabel("" + Player.getRolls(3));
+		p4rolls = new JLabel("" + Player.getRolls(4));
 		
+		p1rank = new JLabel("" + Player.getRanks(1));
+		p2rank = new JLabel("" + Player.getRanks(2));
+		p3rank = new JLabel("" + Player.getRanks(3));
+		p4rank = new JLabel("" + Player.getRanks(4));
+
+				
 		wholePanel.setLayout(new GridLayout(2,2));
 		wholePanel.add(test);
-		wholePanel.add(victory);
 		
-		winPanel.setLayout(new BorderLayout());	
-		winPanel.add(win, BorderLayout.NORTH);
-		winPanel.setVisible(false);
+		rankPanel.setLayout(new GridLayout(5,3));
+		rankPanel.add(blank);
+		rankPanel.add(ranksAre);
+		rankPanel.add(rollsAre);
+		
+		rankPanel.add(p1);
+		rankPanel.add(p1rank);
+		rankPanel.add(p1rolls);
 
-		setLayout(new GridLayout(1,1));
+		rankPanel.add(p2);
+		rankPanel.add(p2rank);
+		rankPanel.add(p2rolls);
+
+		rankPanel.add(p3);
+		rankPanel.add(p3rank);
+		rankPanel.add(p3rolls);
+
+		rankPanel.add(p4);
+		rankPanel.add(p4rank);
+		rankPanel.add(p4rolls);
+		
+		//setLayout(new GridLayout(1,1));
 		add(wholePanel);
-
-		ButtonListener listener = new ButtonListener();
-		victory.addActionListener(listener);
+		wholePanel.add(rankPanel);
 	}
-
-	/** ButtonListener - class that implements ActionListener to account for button clicks **/ 
-	private class ButtonListener implements ActionListener
-		{
-			public void actionPerformed (ActionEvent event)
-			{
-				Object source = event.getSource();
-				if(source == victory){
-					winPanel.setVisible(true);
-					
-					add(winPanel);
-				}
-				
-				updateUI();
-			}
-		}
-
-
-
 }
