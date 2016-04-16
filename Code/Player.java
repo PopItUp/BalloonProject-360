@@ -14,7 +14,7 @@ public class Player
 	 * parameters and tests which player is supposed to have points added to their score.
 	 * 
 	 * @param play, the player that the points are corresponding to
-	 * @param total, the total sum of points that the player has
+	 * @param total, the points that need to be added to a player's total score
 	 **/
 	public static void testAdd(int play, int total)
 	{
@@ -28,6 +28,11 @@ public class Player
 			Pl4.add(total);
 	}
 	
+	/**returnSumPlayer - This method returns the sum of the points that a certain player has.
+	 * 
+	 * @param play, the player that the points are corresponding to
+	 * @return int, returns the total points that a certain player has
+	 **/
 	public static int returnSumPlayer(int play)
 	{
 		int value = 0;
@@ -105,6 +110,10 @@ public class Player
 			Pl4.setRank(place);
 	}
 	
+	/**adjustRanks - This method ranks the player corresponding to their point totals.
+	 * 
+	 * @param first, this parameter is the player who won first in the game
+	 **/
 	public static void adjustRanks(int first)
 	{
 		if (first == 1)
