@@ -1,3 +1,8 @@
+/** CSE 360 Project - Player class
+ * @author PopItUp
+ * Description: The Player class allows the editing of the ranks and rolls
+ * of the different players in the game.
+ */
 public class Player 
 {
 	static Dice Pl1 = new Dice();
@@ -5,6 +10,12 @@ public class Player
 	static Dice Pl3= new Dice();
 	static Dice Pl4= new Dice();
 	
+	/**testAdd - This method allows the player to have points incremented to their score. It takes in two 
+	 * parameters and tests which player is supposed to have points added to their score.
+	 * 
+	 * @param play, the player that the points are corresponding to
+	 * @param total, the total sum of points that the player has
+	 **/
 	public static void testAdd(int play, int total)
 	{
 		if(play == 1)
