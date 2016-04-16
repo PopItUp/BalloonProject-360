@@ -16,6 +16,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+//import StatisticsPanel.ButtonListener;
+
 /** CSE 360 Project - Statistics Panel class
  * @author PopItUp
  * Description: GamePanel is a panel created to feature a 
@@ -34,15 +36,17 @@ public class StatisticsPanel extends JPanel
 		rankPanel = new JPanel();
 		blank = new JLabel("");
 		test = new JLabel("You have reached the statistics panel!");
-		p1 = new JLabel("PLayer 1: ");
-		p2 = new JLabel("PLayer 2: ");
-		p3 = new JLabel("PLayer 3: ");
-		p4 = new JLabel("PLayer 4: ");
+		p1 = new JLabel("Player 1: ");
+		p2 = new JLabel("Player 2: ");
+		p3 = new JLabel("Player 3: ");
+		p4 = new JLabel("Player 4: ");
+		
+		victory = new JButton("Refresh");
 		
 		rollsAre = new JLabel("Rolls:");
 		ranksAre = new JLabel("Rank:");
 
-		p1rolls = new JLabel("" + Player.getRolls(1));
+		p1rolls = new JLabel("" + Player.getRolls(2));
 		p2rolls = new JLabel("" + Player.getRolls(2));
 		p3rolls = new JLabel("" + Player.getRolls(3));
 		p4rolls = new JLabel("" + Player.getRolls(4));
@@ -53,7 +57,7 @@ public class StatisticsPanel extends JPanel
 		p4rank = new JLabel("" + Player.getRanks(4));
 
 				
-		wholePanel.setLayout(new GridLayout(2,2));
+		wholePanel.setLayout(new GridLayout(3,3));
 		wholePanel.add(test);
 		
 		rankPanel.setLayout(new GridLayout(5,3));
@@ -77,8 +81,37 @@ public class StatisticsPanel extends JPanel
 		rankPanel.add(p4rank);
 		rankPanel.add(p4rolls);
 		
+		wholePanel.add(rankPanel);
+		wholePanel.add(victory);
+		
 		//setLayout(new GridLayout(1,1));
 		add(wholePanel);
-		wholePanel.add(rankPanel);
+		
+		ButtonListener listener = new ButtonListener();
+		victory.addActionListener(listener);
+	}
+	
+	/** ButtonListener will keep track of when the "victory' JButton has been pressed, and will then update all the statistics for each player from the most recent game.
+	 * @author PopItUp
+	 * @param event - The event in which the "victory" JButton is pressed
+	 */
+	private class ButtonListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			Object source = event.getSource();
+			if(source == victory)
+			{
+				p1rolls.setText("" + Player.getRolls(1));
+				p2rolls.setText("" + Player.getRolls(2));
+				p3rolls.setText("" + Player.getRolls(3));
+				p4rolls.setText("" + Player.getRolls(4));
+
+				p1rank.setText("" + Player.getRanks(1));
+				p2rank.setText("" + Player.getRanks(2));
+				p3rank.setText("" + Player.getRanks(3));
+				p4rank.setText("" + Player.getRanks(4));
+			}
+		}
 	}
 }
