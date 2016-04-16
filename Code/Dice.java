@@ -10,7 +10,6 @@ public class Dice
 	private int pops = 0;
 	private int rolls = 0;
 	private int sum = 0;
-	private int sum = 0;
 	/**add - The dice is rolled and random values are pushed in but only the even numbers will make the balloon pop.
 	 * The odd numbers of the dice will not do anything
 	 * Also the sum is thing which saves the added values
