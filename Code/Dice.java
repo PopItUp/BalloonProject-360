@@ -6,6 +6,10 @@
 public class Dice 
 {
 	public boolean past = false;
+	private int rank = 0;
+	private int pops = 0;
+	private int rolls = 0;
+	private int sum = 0;
 	private int sum = 0;
 	/**add - The dice is rolled and random values are pushed in but only the even numbers will make the balloon pop.
 	 * The odd numbers of the dice will not do anything
@@ -43,4 +47,33 @@ public class Dice
 		return sum;
 	}
 	
+	public int getPops()
+	{
+		return pops;
+	}
+	
+	public int getRolls()
+	{
+		return rolls;
+	}
+	
+	public int getRanks()
+	{
+		return rank;
+	}
+	
+	public void setRank(int place)
+	{
+		rank = place;
+	}
+	
+	public void incPops()
+	{
+		pops += 1;
+	}
+	
+	public void incRolls()
+	{
+		rolls += 1;
+	}
 }
