@@ -48,6 +48,10 @@ public class Player
 		return value;
 	}
 	
+	/** addWin will increment the total number of wins a player has had once they win a new game
+	 * 
+	 * @param play - indicates which player to add a win to
+	 */
 	public static void addWin(int play)
 	{
 		if(play == 1)
@@ -60,6 +64,10 @@ public class Player
 			Pl4.incPops();
 	}
 	
+	/** addRoll will increment the total number of rolls a player has had from the last game
+	 * 
+	 * @param play - indicates which player to add a roll to
+	 */
 	public static void addRoll(int play)
 	{
 		if(play == 1)
@@ -72,6 +80,11 @@ public class Player
 			Pl4.incRolls();
 	}
 	
+	/** getRolls will take in the parameter play which indicates which of the 4 players to adjust, and then returns their current number of rolls from last game
+	 * 
+	 * @param play - indicates which player to add a roll to
+	 * @return - the number of rolls said player has from the last game
+	 */
 	public static int getRolls(int play)
 	{
 		if(play == 1)
@@ -85,6 +98,11 @@ public class Player
 		return -1;
 	}
 	
+	/** getRanks will take the parameter play which indicates which of the 4 player's rank to return
+	 * 
+	 * @param play - indicates which player to get the rank of
+	 * @return - the rank associated with the given player
+	 */
 	public static int getRanks(int play)
 	{
 		if(play == 1)
@@ -98,6 +116,11 @@ public class Player
 		return -1;
 	}
 	
+	/** setRanks will take in a player out of the four and assign a rank to them from the other parameter place that will correspond to the score of their last game
+	 * 
+	 * @param play - indicates which player will get their rank set
+	 * @param place - will be the place out of 4 which the designated player will have assigned
+	 */
 	public static void setRanks(int play, int place)
 	{
 		if(play == 1)
