@@ -93,6 +93,7 @@ public class GamePanel extends JPanel
 				}
 				else if(source == rollDicePlayer1)
 				{
+					Player.addRoll(1);
 					Player.testAdd(1, x);
 					if(Player.returnSumPlayer(1) >= 20 && won == false)
 					{
@@ -102,6 +103,9 @@ public class GamePanel extends JPanel
 						test.setHorizontalAlignment(SwingConstants.CENTER);
 						test.setVerticalAlignment(SwingConstants.CENTER);
 						won = true;
+						Player.addWin(1);
+						Player.setRanks(1, 1);
+						Player.adjustRanks(1);
 					}
 					else
 						player1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -110,6 +114,7 @@ public class GamePanel extends JPanel
 				}
 				else if(source == rollDicePlayer2)
 				{
+					Player.addRoll(2);
 					Player.testAdd(2, x);
 					if(Player.returnSumPlayer(2) >= 20 && won == false)
 					{
@@ -119,12 +124,16 @@ public class GamePanel extends JPanel
 						test.setHorizontalAlignment(SwingConstants.CENTER);
 						test.setVerticalAlignment(SwingConstants.CENTER);
 						won = true;
+						Player.addWin(2);
+						Player.setRanks(2, 1);
+						Player.adjustRanks(2);
 					}	
 					else
 						player2.setText("Player 2:" + Player.returnSumPlayer(2));
 				}
 				else if(source == rollDicePlayer3)
 				{
+					Player.addRoll(3);
 					Player.testAdd(3, x);
 					if(Player.returnSumPlayer(3) >= 20 && won == false)
 					{
@@ -134,12 +143,16 @@ public class GamePanel extends JPanel
 						test.setHorizontalAlignment(SwingConstants.CENTER);
 						test.setVerticalAlignment(SwingConstants.CENTER);
 						won = true;
+						Player.addWin(3);
+						Player.setRanks(3, 1);
+						Player.adjustRanks(3);
 					}
 					else
 						player3.setText("Player 3:" + Player.returnSumPlayer(3));
 				}
 				else if(source == rollDicePlayer4)
 				{
+					Player.addRoll(4);
 					Player.testAdd(4, x);
 					if(Player.returnSumPlayer(4) >= 20 && won == false)
 					{
@@ -149,6 +162,9 @@ public class GamePanel extends JPanel
 						test.setHorizontalAlignment(SwingConstants.CENTER);
 						test.setVerticalAlignment(SwingConstants.CENTER);
 						won = true;
+						Player.addWin(4);
+						Player.setRanks(4, 1);
+						Player.adjustRanks(4);
 					}
 					else
 						player4.setText("Player 4:" + Player.returnSumPlayer(4));
