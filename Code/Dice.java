@@ -46,31 +46,53 @@ public class Dice
 		return sum;
 	}
 	
+	/** getPops will return the number of games the player has won
+	 * 
+	 * @return pops - number of balloons popped by the player
+	 */
 	public int getPops()
 	{
 		return pops;
 	}
 	
+	/** getRolls will return the number of rolls the player had since the last game
+	 * 
+	 * @return rolls - the number of times the player rolled the die before the game ended
+	 */
 	public int getRolls()
 	{
 		return rolls;
 	}
 	
+	/** getRanks will return the rank that the player has from the last game
+	 * 
+	 * @return rank - the rank associated with each player
+	 */
 	public int getRanks()
 	{
 		return rank;
 	}
 	
+	/** setRank will set the rank of the winner to number one every time
+	 * 
+	 * @param place - will be the ranking out of 4 that the player receives after the game
+	 */
 	public void setRank(int place)
 	{
 		rank = place;
 	}
 	
+	/** incPops will increment the variable that keeps track of how many balloons a registered user has popped
+	 * 
+	 */
 	public void incPops()
 	{
 		pops += 1;
 	}
 	
+	/** incRolls will increment the variable each player has that keeps track of how many times they rolled the die.
+	 * 
+	 */
 	public void incRolls()
 	{
 		rolls += 1;
