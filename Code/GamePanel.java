@@ -1,8 +1,3 @@
-// CSE 360 Project
-// Name: PopItUp
-// Description: GamePanel is a panel created to feature a 
-//				the PopItUp game
-//package cse360BalloonGame;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -14,6 +9,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+/** CSE 360 Project - GamePanel class
+ * @author PopItUp
+ * Description: GamePanel is a panel created to feature a 
+ *				the PopItUp game
+ */
 public class GamePanel extends JPanel
 {
 	private JPanel wholePanel, winPanel, rollPanel, rollEntirePanel;
@@ -23,6 +23,7 @@ public class GamePanel extends JPanel
 	private Dice Pl1, Pl2, Pl3, Pl4;
 	private boolean won = false;
 	
+	/** GamePanel - constructor that initializes and sets all the instance variables **/ 
 	public GamePanel()
 	{
 
@@ -80,7 +81,7 @@ public class GamePanel extends JPanel
 		rollDicePlayer4.addActionListener(listener);
 	}
 
-	//make sure the numbers pop up properly
+	/** ButtonListener - class that implements ActionListener to account for button clicks **/ 
 	private class ButtonListener implements ActionListener
 		{
 			public void actionPerformed (ActionEvent event)

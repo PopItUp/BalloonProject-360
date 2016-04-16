@@ -1,7 +1,5 @@
-//package cse360BalloonGame;
 public class Player 
 {
-	
 	static Dice Pl1 = new Dice();
 	static Dice Pl2 = new Dice();
 	static Dice Pl3= new Dice();

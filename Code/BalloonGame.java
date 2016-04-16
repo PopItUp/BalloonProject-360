@@ -1,9 +1,3 @@
-// CSE 360 Project
-// Name: PopItUp
-// Description: BalloonGame extends JApplet and acts as the main
-//				panel to control the CardLayout panel which switches
-//				once a difficulty is specified or area is specified
-//package cse360BalloonGame;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Font;
@@ -17,9 +11,17 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
  
+/** CSE 360 Project - BalloonGame class
+ * @author PopItUp
+ * Description: BalloonGame extends JApplet and acts as the main
+ *				panel to control the CardLayout panel which switches
+ *				once a difficulty is specified or area is specified
+ * 
+ */
 @SuppressWarnings("serial")
 public class BalloonGame extends JApplet
 {
+	//private instance variables declared 
 	private final int WIDTH = 2000, HEIGHT = 1000;
 	private JPanel cards, wholePanel;
 	private StartPanel start;
@@ -27,6 +29,8 @@ public class BalloonGame extends JApplet
 	private StatisticsPanel stats; 
 	private JRadioButton begin, home, statistics;
 
+	
+/** init - constructor that allows for the java applet to be initialized  **/
  public void init()
   {
     setSize (WIDTH, HEIGHT);
@@ -75,6 +79,7 @@ public class BalloonGame extends JApplet
 	card1.show(cards, "StartPanel");
 		
   }
+ /** RadioButtonListener - class that uses the ActionListener in order to record when a radio button is clicked **/
 	 private class RadioButtonListener implements ActionListener
 	 {
 	  public void actionPerformed(ActionEvent event)

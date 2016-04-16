@@ -1,7 +1,4 @@
-//package cse360BalloonGame;
-
 import static org.junit.Assert.*;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 

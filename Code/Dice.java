@@ -1,4 +1,8 @@
-//package cse360BalloonGame;
+/** CSE 360 Project - Dice class
+ * @author PopItUp
+ * Description: The Dice class accounts for the rolls that each player 
+ * receives through the add and returnSum methods
+ */
 public class Dice 
 {
 	public boolean past = false;
@@ -31,8 +35,9 @@ public class Dice
 		}
 	}
 	/** return- returns the calculated total that represents the players current score 
-	* @return int, returns the modified private instance variable of sum.
-	**/
+	 * 
+	 * @return int, returns the modified private instance variable of sum.
+	 **/
 	public int returnSum()
 	{
 		return sum;
