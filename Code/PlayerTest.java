@@ -140,4 +140,97 @@ public class PlayerTest {
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
+	
+	@Test
+	public void testRollsPlayer1() {
+		Player player = new Player();
+		
+		player.addRoll(1);
+		
+		assertEquals(1, player.getRolls(1));
+	}
+	
+	@Test
+	public void testRollsPlayer2() {
+		Player player = new Player();
+		
+		player.addRoll(2);
+		player.addRoll(2);
+		
+		assertEquals(2, player.getRolls(2));
+	}
+	
+	@Test
+	public void testRollsPlayer3() {
+		Player player = new Player();
+		
+		player.addRoll(3);
+		player.addRoll(3);
+		player.addRoll(3);
+		
+		assertEquals(3, player.getRolls(3));
+	}
+	
+	@Test
+	public void testRollsPlayer4() {
+		Player player = new Player();
+		
+		player.addRoll(4);
+		player.addRoll(4);
+		player.addRoll(4);
+		player.addRoll(4);
+		
+		assertEquals(4, player.getRolls(4));
+	}
+	
+	@Test
+	public void testRankPlayer1() {
+		Player player = new Player();
+		
+		player.setRanks(1, 2);
+		
+		assertEquals(2, player.getRanks(1));
+	}
+	
+	@Test
+	public void testRankPlayer2() {
+		Player player = new Player();
+		
+		player.setRanks(2, 4);
+		
+		assertEquals(4, player.getRanks(2));
+	}
+	
+	@Test
+	public void testRankPlayer3() {
+		Player player = new Player();
+		
+		player.setRanks(3, 1);
+		
+		assertEquals(1, player.getRanks(3));
+	}
+	
+	@Test
+	public void testRankPlayer4() {
+		Player player = new Player();
+		
+		player.setRanks(4, 4);
+		
+		assertEquals(4, player.getRanks(4));
+	}
+	
+	@Test
+	public void testAdjustRankings() {
+		Player player = new Player();
+		
+		player.testAdd(2, 7);
+		player.testAdd(3, 12);
+		player.testAdd(4, 3);
+		
+		player.adjustRanks(1);
+		
+		assertEquals(3, player.getRanks(4));
+		assertEquals(2, player.getRanks(3));
+		assertEquals(4, player.getRanks(2));
+	}
 }
