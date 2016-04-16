@@ -1,9 +1,3 @@
-// CSE 360 Project
-// Name: PopItUp
-// Description:StartPanel is a panel that features the title of the 
-//				program, a GIF, and a direction to prompt the user to
-//				proceed to the game
-//package cse360BalloonGame;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -12,12 +6,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/** CSE 360 Project - StartPanel class
+* @author PopItUp
+* Description:StartPanel is a panel that features the title of the 
+* program, a GIF, and a direction to prompt the user to proceed to the game
+*
+*/
 public class StartPanel extends JPanel
 {
 
 	private JPanel wholePanel;
 	private JLabel welcomeMessage, startMessage, picture;
 
+	/** StartPanel - constructor that initializes private instance variables**/
 	public StartPanel()
 	{
 		wholePanel  = new JPanel();
