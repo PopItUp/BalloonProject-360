@@ -17,8 +17,8 @@ import javax.swing.SwingConstants;
 public class GamePanel extends JPanel
 {
 	private JPanel wholePanel, winPanel, rollPanel, rollEntirePanel;
-	private JButton victory, rollDicePlayer1, rollDicePlayer2, rollDicePlayer3, rollDicePlayer4;
-	private JLabel win, test, player1, player2, player3, player4, test2;
+	private JButton victory, rollDicePlayer1, rollDicePlayer2, rollDicePlayer3, rollDicePlayer4, rollDiceReset;
+	private JLabel win, test, player1, player2, player3, player4, test2, reset;
 	private int count1, count2, count3, count4;
 	private Dice Pl1, Pl2, Pl3, Pl4;
 	private boolean won = false;
@@ -35,23 +35,27 @@ public class GamePanel extends JPanel
 				+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
 		test2 = new JLabel(" ");
 		
-		rollDicePlayer1 = new JButton("Roll for Player 1");
-		rollDicePlayer2 = new JButton("Roll for Player 2");
-		rollDicePlayer3 = new JButton("Roll for Player 3");
-		rollDicePlayer4 = new JButton("Roll for Player 4");
+		rollDicePlayer1 = new JButton("Iron Man");
+		rollDicePlayer2 = new JButton("Captain America");
+		rollDicePlayer3 = new JButton("BlackWidow");
+		rollDicePlayer4 = new JButton("SpiderMan");
+		rollDiceReset   = new JButton("Civil War-2");
 		
-		player1 = new JLabel("Player1");
+		player1 = new JLabel("Player 1");
 		player1.setHorizontalAlignment(SwingConstants.CENTER);
 		player1.setVerticalAlignment(SwingConstants.CENTER);
-		player2 = new JLabel("Player2");
+		player2 = new JLabel("Player 2");
 		player2.setHorizontalAlignment(SwingConstants.CENTER);
 		player2.setVerticalAlignment(SwingConstants.CENTER);
-		player3 = new JLabel("Player3");
+		player3 = new JLabel("Player 3");
 		player3.setHorizontalAlignment(SwingConstants.CENTER);
 		player3.setVerticalAlignment(SwingConstants.CENTER);
-		player4 = new JLabel("Player4");
+		player4 = new JLabel("Player 4");
 		player4.setHorizontalAlignment(SwingConstants.CENTER);
 		player4.setVerticalAlignment(SwingConstants.CENTER);
+		reset = new JLabel("Reseting the Game");
+		reset.setHorizontalAlignment(SwingConstants.CENTER);
+		reset.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		wholePanel.setLayout(new GridLayout(2,1));
 		wholePanel.add(test);
@@ -60,7 +64,7 @@ public class GamePanel extends JPanel
 		rollEntirePanel.add(test2);
 		rollEntirePanel.add(rollPanel);
 		
-		rollPanel.setLayout(new GridLayout(4,1));
+		rollPanel.setLayout(new GridLayout(6,1));
 		rollPanel.add(rollDicePlayer1);
 		rollPanel.add(rollDicePlayer2);
 		rollPanel.add(player1);
@@ -69,6 +73,8 @@ public class GamePanel extends JPanel
 		rollPanel.add(rollDicePlayer4);
 		rollPanel.add(player3);
 		rollPanel.add(player4);
+		rollPanel.add(rollDiceReset);
+		rollPanel.add(reset);
 		
 		setLayout(new GridLayout(1,1));
 		add(wholePanel);
@@ -79,6 +85,7 @@ public class GamePanel extends JPanel
 		rollDicePlayer2.addActionListener(listener);
 		rollDicePlayer3.addActionListener(listener);
 		rollDicePlayer4.addActionListener(listener);
+	    rollDiceReset.addActionListener(listener);
 	}
 
 	/** ButtonListener - class that implements ActionListener to account for button clicks **/ 
@@ -97,8 +104,8 @@ public class GamePanel extends JPanel
 					Player.testAdd(1, x);
 					if(Player.returnSumPlayer(1) >= 20 && won == false)
 					{
-						player1.setText("Player 1:" + Player.returnSumPlayer(1));
-						test.setText("Player 1 WINS!");
+						player1.setText("Iron Man" + Player.returnSumPlayer(1));
+						test.setText("Iron Man WINS!");
 						test.setFont(new Font("Serif", Font.BOLD, 80));
 						test.setHorizontalAlignment(SwingConstants.CENTER);
 						test.setVerticalAlignment(SwingConstants.CENTER);
@@ -107,10 +114,15 @@ public class GamePanel extends JPanel
 						Player.setRanks(1, 1);
 						Player.adjustRanks(1);
 					}
-					else
+					else{
 						player1.setHorizontalAlignment(SwingConstants.CENTER);
 						player1.setVerticalAlignment(SwingConstants.CENTER);
 						player1.setText("Player 1:" + Player.returnSumPlayer(1));
+						/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+				+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+						test.setFont(new Font("Serif", Font.BOLD, 30));
+						test.setHorizontalAlignment(SwingConstants.CENTER);
+						test.setVerticalAlignment(SwingConstants.CENTER);*/}
 				}
 				else if(source == rollDicePlayer2)
 				{
@@ -118,8 +130,8 @@ public class GamePanel extends JPanel
 					Player.testAdd(2, x);
 					if(Player.returnSumPlayer(2) >= 20 && won == false)
 					{
-						player2.setText("Player 2:" + Player.returnSumPlayer(2));
-						test.setText("Player 2 WINS!");
+						player2.setText("Captain America" + Player.returnSumPlayer(2));
+						test.setText("Captain America WINS!");
 						test.setFont(new Font("Serif", Font.BOLD, 80));
 						test.setHorizontalAlignment(SwingConstants.CENTER);
 						test.setVerticalAlignment(SwingConstants.CENTER);
@@ -128,8 +140,13 @@ public class GamePanel extends JPanel
 						Player.setRanks(2, 1);
 						Player.adjustRanks(2);
 					}	
-					else
+					else{
 						player2.setText("Player 2:" + Player.returnSumPlayer(2));
+						/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+								+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+						test.setFont(new Font("Serif", Font.BOLD, 30));
+						test.setHorizontalAlignment(SwingConstants.CENTER);
+						test.setVerticalAlignment(SwingConstants.CENTER);*/}
 				}
 				else if(source == rollDicePlayer3)
 				{
@@ -137,8 +154,8 @@ public class GamePanel extends JPanel
 					Player.testAdd(3, x);
 					if(Player.returnSumPlayer(3) >= 20 && won == false)
 					{
-						player3.setText("Player 3:" + Player.returnSumPlayer(3));
-						test.setText("Player 3 WINS!");
+						player3.setText("BlackWidow" + Player.returnSumPlayer(3));
+						test.setText("BlackWidow Wins!!");
 						test.setFont(new Font("Serif", Font.BOLD, 80));
 						test.setHorizontalAlignment(SwingConstants.CENTER);
 						test.setVerticalAlignment(SwingConstants.CENTER);
@@ -147,8 +164,13 @@ public class GamePanel extends JPanel
 						Player.setRanks(3, 1);
 						Player.adjustRanks(3);
 					}
-					else
+					else{
 						player3.setText("Player 3:" + Player.returnSumPlayer(3));
+						/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+								+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+						test.setFont(new Font("Serif", Font.BOLD, 30));
+						test.setHorizontalAlignment(SwingConstants.CENTER);
+						test.setVerticalAlignment(SwingConstants.CENTER);*/}
 				}
 				else if(source == rollDicePlayer4)
 				{
@@ -156,8 +178,8 @@ public class GamePanel extends JPanel
 					Player.testAdd(4, x);
 					if(Player.returnSumPlayer(4) >= 20 && won == false)
 					{
-						player4.setText("Player 4:" + Player.returnSumPlayer(4));
-						test.setText("Player 4 WINS!");
+						player4.setText("SpiderMan" + Player.returnSumPlayer(4));
+						test.setText("SpiderMan!");
 						test.setFont(new Font("Serif", Font.BOLD, 80));
 						test.setHorizontalAlignment(SwingConstants.CENTER);
 						test.setVerticalAlignment(SwingConstants.CENTER);
@@ -166,8 +188,26 @@ public class GamePanel extends JPanel
 						Player.setRanks(4, 1);
 						Player.adjustRanks(4);
 					}
-					else
+					else{
 						player4.setText("Player 4:" + Player.returnSumPlayer(4));
+						/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+								+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+						test.setFont(new Font("Serif", Font.BOLD, 30));
+						test.setHorizontalAlignment(SwingConstants.CENTER);
+						test.setVerticalAlignment(SwingConstants.CENTER);*/}
+				}
+				else if(source == rollDiceReset)
+				{
+					player1.setText("Player 1:" + Player.returnResetSum(1));
+					player2.setText("Player 2:" + Player.returnResetSum(2));
+					player3.setText("Player 3:" + Player.returnResetSum(3));
+					player4.setText("Player 4:" + Player.returnResetSum(4));
+					won = false;
+					test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+								+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+					test.setFont(new Font("Serfi", Font.BOLD,10));
+					test.setHorizontalAlignment(SwingConstants.CENTER);
+					test.setVerticalAlignment(SwingConstants.CENTER);
 				}
 				
 				updateUI();
@@ -176,4 +216,3 @@ public class GamePanel extends JPanel
 
 
 
-}
