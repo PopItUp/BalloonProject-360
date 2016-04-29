@@ -32,6 +32,11 @@ public class Player
 	 * 
 	 * @param play, the player that the points are corresponding to
 	 * @return int, returns the total points that a certain player has
+	 * 
+	 **returnResetSum - This method will reset the sum of the points to 0 that a certain player has.
+	 *
+	 * @param resetPlay, the reset sum will be done according to the player
+	 * @return int, returns the reset points that a certain player has.
 	 **/
 	public static int returnSumPlayer(int play)
 	{
@@ -44,6 +49,22 @@ public class Player
 			value = Pl3.returnSum();
 		else if(play == 4)
 			value = Pl4.returnSum();
+		
+		return value;
+	}
+	// This is were the as soon as the reset button is clicked it will check the players and their scores and will reset the scores to 0.
+	// So that another fresh game can be played.
+	public static int returnResetSum(int resetPlay)
+	{
+		int value = 0;
+		if(resetPlay == 1)
+			value = Pl1.resetsum();
+		else if(resetPlay == 2)
+			value = Pl2.resetsum();
+		else if(resetPlay == 3)
+			value = Pl3.resetsum();
+		else if(resetPlay == 4)
+			value = Pl4.resetsum();
 		
 		return value;
 	}
