@@ -154,6 +154,33 @@ public class Player
 			Pl4.setRank(place);
 	}
 	
+	/** addGame will increment the variable games associated to every player, will be used to calculate average rolls per game
+	 */
+	public static void addGame()
+	{
+		Pl1.incGame();
+		Pl2.incGame();
+		Pl3.incGame();
+		Pl4.incGame();
+	}
+	
+	/** calcAvg will calculate the average number of rolls per game for each player
+	 * 
+	 * @param play - indicates which player will get their average calculated
+	 */
+	public static double calcAvg(int play)
+	{
+		if(play == 1)
+			return Pl1.calcAvg();
+		else if(play == 2)
+			return Pl2.calcAvg();
+		else if(play == 3)
+			return Pl3.calcAvg();
+		else if(play == 4)
+			return Pl4.calcAvg();
+		return -1;
+	}
+	
 	/**adjustRanks - This method ranks the player corresponding to their point totals.
 	 * 
 	 * @param first, this parameter is the player who won first in the game
@@ -162,16 +189,16 @@ public class Player
 	{
 		if (first == 1)
 		{
-			if (Pl2.returnSum() > Pl3.returnSum())
+			if (Pl2.getPops() >= Pl3.getPops())
 			{
-				if (Pl3.returnSum() > Pl4.returnSum())
+				if (Pl3.getPops() >= Pl4.getPops())
 				{
 					Pl2.setRank(2);
 					Pl3.setRank(3);
 					Pl4.setRank(4);
 				}
 				
-				else if (Pl2.returnSum() > Pl4.returnSum())
+				else if (Pl2.getPops() >= Pl4.getPops())
 				{
 					Pl2.setRank(2);
 					Pl3.setRank(4);
@@ -186,16 +213,16 @@ public class Player
 				}
 			}
 			
-			else if (Pl3.returnSum() > Pl2.returnSum())
+			else if (Pl3.getPops() >= Pl2.getPops())
 			{
-				if (Pl2.returnSum() > Pl4.returnSum())
+				if (Pl2.getPops() >= Pl4.getPops())
 				{
 					Pl2.setRank(3);
 					Pl3.setRank(2);
 					Pl4.setRank(4);
 				}
 				
-				else if (Pl4.returnSum() > Pl3.returnSum())
+				else if (Pl4.getPops() >= Pl3.getPops())
 				{
 					Pl2.setRank(4);
 					Pl3.setRank(3);
@@ -213,16 +240,16 @@ public class Player
 		
 		else if (first == 2)
 		{
-			if (Pl1.returnSum() > Pl3.returnSum())
+			if (Pl1.getPops() >= Pl3.getPops())
 			{
-				if (Pl3.returnSum() > Pl4.returnSum())
+				if (Pl3.getPops() >= Pl4.getPops())
 				{
 					Pl1.setRank(2);
 					Pl3.setRank(3);
 					Pl4.setRank(4);
 				}
 				
-				else if (Pl1.returnSum() > Pl4.returnSum())
+				else if (Pl1.getPops() >= Pl4.getPops())
 				{
 					Pl1.setRank(2);
 					Pl3.setRank(4);
@@ -237,16 +264,16 @@ public class Player
 				}
 			}
 			
-			else if (Pl3.returnSum() > Pl1.returnSum())
+			else if (Pl3.getPops() >= Pl1.getPops())
 			{
-				if (Pl1.returnSum() > Pl4.returnSum())
+				if (Pl1.getPops() >= Pl4.getPops())
 				{
 					Pl1.setRank(3);
 					Pl3.setRank(2);
 					Pl4.setRank(4);
 				}
 				
-				else if (Pl4.returnSum() > Pl3.returnSum())
+				else if (Pl4.getPops() >= Pl3.getPops())
 				{
 					Pl1.setRank(4);
 					Pl3.setRank(3);
@@ -264,16 +291,16 @@ public class Player
 		
 		else if (first == 3)
 		{
-			if (Pl2.returnSum() > Pl1.returnSum())
+			if (Pl2.getPops() >= Pl1.getPops())
 			{
-				if (Pl1.returnSum() > Pl4.returnSum())
+				if (Pl1.getPops() >= Pl4.getPops())
 				{
 					Pl2.setRank(2);
 					Pl1.setRank(3);
 					Pl4.setRank(4);
 				}
 				
-				else if (Pl2.returnSum() > Pl4.returnSum())
+				else if (Pl2.getPops() >= Pl4.getPops())
 				{
 					Pl2.setRank(2);
 					Pl1.setRank(4);
@@ -288,16 +315,16 @@ public class Player
 				}
 			}
 			
-			else if (Pl1.returnSum() > Pl2.returnSum())
+			else if (Pl1.getPops() >= Pl2.getPops())
 			{
-				if (Pl2.returnSum() > Pl4.returnSum())
+				if (Pl2.getPops() >= Pl4.getPops())
 				{
 					Pl2.setRank(3);
 					Pl1.setRank(2);
 					Pl4.setRank(4);
 				}
 				
-				else if (Pl4.returnSum() > Pl1.returnSum())
+				else if (Pl4.getPops() >= Pl1.getPops())
 				{
 					Pl2.setRank(4);
 					Pl1.setRank(3);
@@ -315,16 +342,16 @@ public class Player
 		
 		else if (first == 4)
 		{
-			if (Pl2.returnSum() > Pl3.returnSum())
+			if (Pl2.getPops() >= Pl3.getPops())
 			{
-				if (Pl3.returnSum() > Pl1.returnSum())
+				if (Pl3.getPops() >= Pl1.getPops())
 				{
 					Pl2.setRank(2);
 					Pl3.setRank(3);
 					Pl1.setRank(4);
 				}
 				
-				else if (Pl2.returnSum() > Pl1.returnSum())
+				else if (Pl2.getPops() >= Pl1.getPops())
 				{
 					Pl2.setRank(2);
 					Pl3.setRank(4);
@@ -339,16 +366,16 @@ public class Player
 				}
 			}
 			
-			else if (Pl3.returnSum() > Pl2.returnSum())
+			else if (Pl3.getPops() >= Pl2.getPops())
 			{
-				if (Pl2.returnSum() > Pl1.returnSum())
+				if (Pl2.getPops() >= Pl1.getPops())
 				{
 					Pl2.setRank(3);
 					Pl3.setRank(2);
 					Pl1.setRank(4);
 				}
 				
-				else if (Pl1.returnSum() > Pl3.returnSum())
+				else if (Pl1.getPops() >= Pl3.getPops())
 				{
 					Pl2.setRank(4);
 					Pl3.setRank(3);
@@ -363,5 +390,5 @@ public class Player
 				}
 			}
 		}
-	}	
+	}
 }
