@@ -104,6 +104,7 @@ public class GamePanel extends JPanel
 					Player.testAdd(1, x);
 					if(Player.returnSumPlayer(1) >= 20 && won == false)
 					{
+						Player.addGame();
 						player1.setText("Iron Man" + Player.returnSumPlayer(1));
 						test.setText("Iron Man WINS!");
 						test.setFont(new Font("Serif", Font.BOLD, 80));
@@ -130,6 +131,7 @@ public class GamePanel extends JPanel
 					Player.testAdd(2, x);
 					if(Player.returnSumPlayer(2) >= 20 && won == false)
 					{
+						Player.addGame();
 						player2.setText("Captain America" + Player.returnSumPlayer(2));
 						test.setText("Captain America WINS!");
 						test.setFont(new Font("Serif", Font.BOLD, 80));
@@ -154,6 +156,7 @@ public class GamePanel extends JPanel
 					Player.testAdd(3, x);
 					if(Player.returnSumPlayer(3) >= 20 && won == false)
 					{
+						Player.addGame();
 						player3.setText("BlackWidow" + Player.returnSumPlayer(3));
 						test.setText("BlackWidow Wins!!");
 						test.setFont(new Font("Serif", Font.BOLD, 80));
@@ -178,6 +181,7 @@ public class GamePanel extends JPanel
 					Player.testAdd(4, x);
 					if(Player.returnSumPlayer(4) >= 20 && won == false)
 					{
+						Player.addGame();
 						player4.setText("SpiderMan" + Player.returnSumPlayer(4));
 						test.setText("SpiderMan!");
 						test.setFont(new Font("Serif", Font.BOLD, 80));
