@@ -27,7 +27,7 @@ public class StatisticsPanel extends JPanel
 {
 	private JPanel wholePanel, rankPanel;
 	private JButton victory;
-	private JLabel test, p1, p2, p3, p4, p1rank, p2rank, p3rank, p4rank, p1rolls, p2rolls, p3rolls, p4rolls, rollsAre, ranksAre, blank;
+	private JLabel test, p1, p2, p3, p4, p1rank, p2rank, p3rank, p4rank, p1rolls, p2rolls, p3rolls, p4rolls, rollsAre, ranksAre, blank, avgAre, p1avg, p2avg, p3avg, p4avg;
 
 	/** StatisticsPanel - constructor that initializes and sets all the instance variables **/ 
 	public StatisticsPanel()
@@ -46,6 +46,8 @@ public class StatisticsPanel extends JPanel
 		rollsAre = new JLabel("Rolls:");
 		ranksAre = new JLabel("Rank:");
 
+	avgAre = new JLabel("Average Rolls per Game:");
+
 		p1rolls = new JLabel("" + Player.getRolls(2));
 		p2rolls = new JLabel("" + Player.getRolls(2));
 		p3rolls = new JLabel("" + Player.getRolls(3));
@@ -56,30 +58,39 @@ public class StatisticsPanel extends JPanel
 		p3rank = new JLabel("" + Player.getRanks(3));
 		p4rank = new JLabel("" + Player.getRanks(4));
 
+		p1avg = new JLabel("" + Player.calcAvg(1));
+		p2avg = new JLabel("" + Player.calcAvg(2));
+		p3avg = new JLabel("" + Player.calcAvg(3));
+		p4avg = new JLabel("" + Player.calcAvg(4));
 				
 		wholePanel.setLayout(new GridLayout(3,3));
 		wholePanel.add(test);
 		
-		rankPanel.setLayout(new GridLayout(5,3));
+		rankPanel.setLayout(new GridLayout(5,4));
 		rankPanel.add(blank);
 		rankPanel.add(ranksAre);
 		rankPanel.add(rollsAre);
+		rankPanel.add(avgAre);
 		
 		rankPanel.add(p1);
 		rankPanel.add(p1rank);
 		rankPanel.add(p1rolls);
+		rankPanel.add(p1avg);
 
 		rankPanel.add(p2);
 		rankPanel.add(p2rank);
 		rankPanel.add(p2rolls);
+		rankPanel.add(p2avg);
 
 		rankPanel.add(p3);
 		rankPanel.add(p3rank);
 		rankPanel.add(p3rolls);
+		rankPanel.add(p3avg);
 
 		rankPanel.add(p4);
 		rankPanel.add(p4rank);
 		rankPanel.add(p4rolls);
+		rankPanel.add(p4avg);
 		
 		wholePanel.add(rankPanel);
 		wholePanel.add(victory);
@@ -111,6 +122,11 @@ public class StatisticsPanel extends JPanel
 				p2rank.setText("" + Player.getRanks(2));
 				p3rank.setText("" + Player.getRanks(3));
 				p4rank.setText("" + Player.getRanks(4));
+				
+				p1avg.setText("" + Player.calcAvg(1));
+				p2avg.setText("" + Player.calcAvg(2));
+				p3avg.setText("" + Player.calcAvg(3));
+				p4avg.setText("" + Player.calcAvg(4));
 			}
 		}
 	}
