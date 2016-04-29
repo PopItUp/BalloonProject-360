@@ -10,6 +10,8 @@ public class Dice
 	private int pops = 0;
 	private int rolls = 0;
 	private int sum = 0;
+	private int games = 0;
+	
 	/**add - The dice is rolled and random values are pushed in but only the even numbers will make the balloon pop.
 	 * The odd numbers of the dice will not do anything
 	 * Also the sum is thing which saves the added values
@@ -105,5 +107,38 @@ public class Dice
 	public void incRolls()
 	{
 		rolls += 1;
+	}
+	
+	/** incGame will increment the variable games to help calculate average rolls per game
+	 * 
+	 */
+	public void incGame()
+	{
+		games += 1;
+	}
+	
+	/** getGame will return the number of games played so far
+	 * 
+	 * @return games - the number of games completed
+	 */
+	public int getGame()
+	{
+		return games;
+	}
+	
+	/** calcAvg will compute and return the average number of rolls per game for each player
+	 * 
+	 * @return (rolls/games) - the average number of rolls per game
+	 */
+	public double calcAvg()
+	{
+		if (games == 0)
+		{
+			return rolls;
+		}
+		else
+		{
+			return rolls/(double)games;	
+		}
 	}
 }
