@@ -37,200 +37,253 @@ public class PlayerTest {
 	public void testPoppedPlayer1() {
 		Player player = new Player();
 		
-		player.testAdd(1, 20);
+		Player.testAdd(1, 20);
 		
 		assertEquals("The balloon is popped", outContent.toString());
 	}
 	
 	@Test
 	public void testPoppedPlayer2() {
-		Player player = new Player();
-		
-		player.testAdd(2, 20);
+
+		Player.testAdd(2, 20);
 		
 		assertEquals("The balloon is popped", outContent.toString());
 	}
 	
 	@Test
 	public void testPoppedPlayer3() {
-		Player player = new Player();
 		
-		player.testAdd(3, 20);
+		Player.testAdd(3, 20);
 		
 		assertEquals("The balloon is popped", outContent.toString());
 	}
 	
 	@Test
 	public void testPoppedPlayer4() {
-		Player player = new Player();
 		
-		player.testAdd(4, 20);
+		Player.testAdd(4, 20);
 		
 		assertEquals("The balloon is popped", outContent.toString());
 	}
 	
 	@Test
 	public void testNotPoppedOddPlayer1() {
-		Player player = new Player();
 		
-		player.testAdd(1, 5);
+		Player.testAdd(1, 5);
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
 	
 	@Test
 	public void testNotPoppedOddPlayer2() {
-		Player player = new Player();
 		
-		player.testAdd(2, 5);
+		Player.testAdd(2, 5);
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
 	
 	@Test
 	public void testNotPoppedOddPlayer3() {
-		Player player = new Player();
 		
-		player.testAdd(3, 5);
+		Player.testAdd(3, 5);
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
 	
 	@Test
 	public void testNotPoppedOddPlayer4() {
-		Player player = new Player();
 		
-		player.testAdd(4, 5);
+		Player.testAdd(4, 5);
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
 	
 	@Test
 	public void testNotPoppedEvenPlayer1() {
-		Player player = new Player();
 		
-		player.testAdd(1, 6);
+		Player.testAdd(1, 6);
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
 	
 	@Test
 	public void testNotPoppedEvenPlayer2() {
-		Player player = new Player();
 		
-		player.testAdd(2, 6);
+		Player.testAdd(2, 6);
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
 	
 	@Test
 	public void testNotPoppedEvenPlayer3() {
-		Player player = new Player();
 		
-		player.testAdd(3, 6);
+		Player.testAdd(3, 6);
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
 	
 	@Test
 	public void testNotPoppedEvenPlayer4() {
-		Player player = new Player();
 		
-		player.testAdd(4, 6);
+		Player.testAdd(4, 6);
 		
 		assertEquals("The balloon is not popped", outContent.toString());
 	}
 	
 	@Test
 	public void testRollsPlayer1() {
-		Player player = new Player();
 		
-		player.addRoll(1);
+		Player.addRoll(1);
 		
-		assertEquals(1, player.getRolls(1));
+		assertEquals(1, Player.getRolls(1));
 	}
 	
 	@Test
 	public void testRollsPlayer2() {
-		Player player = new Player();
 		
-		player.addRoll(2);
-		player.addRoll(2);
+		Player.addRoll(2);
+		Player.addRoll(2);
 		
-		assertEquals(2, player.getRolls(2));
+		assertEquals(2, Player.getRolls(2));
 	}
 	
 	@Test
 	public void testRollsPlayer3() {
-		Player player = new Player();
+	
+		Player.addRoll(3);
+		Player.addRoll(3);
+		Player.addRoll(3);
 		
-		player.addRoll(3);
-		player.addRoll(3);
-		player.addRoll(3);
-		
-		assertEquals(3, player.getRolls(3));
+		assertEquals(3, Player.getRolls(3));
 	}
 	
 	@Test
 	public void testRollsPlayer4() {
-		Player player = new Player();
 		
-		player.addRoll(4);
-		player.addRoll(4);
-		player.addRoll(4);
-		player.addRoll(4);
+		Player.addRoll(4);
+		Player.addRoll(4);
+		Player.addRoll(4);
+		Player.addRoll(4);
 		
-		assertEquals(4, player.getRolls(4));
+		assertEquals(4, Player.getRolls(4));
 	}
 	
 	@Test
 	public void testRankPlayer1() {
-		Player player = new Player();
+	
+		Player.setRanks(1, 2);
 		
-		player.setRanks(1, 2);
-		
-		assertEquals(2, player.getRanks(1));
+		assertEquals(2, Player.getRanks(1));
 	}
 	
 	@Test
 	public void testRankPlayer2() {
-		Player player = new Player();
 		
-		player.setRanks(2, 4);
+		Player.setRanks(2, 4);
 		
-		assertEquals(4, player.getRanks(2));
+		assertEquals(4, Player.getRanks(2));
 	}
 	
 	@Test
 	public void testRankPlayer3() {
-		Player player = new Player();
+	
+		Player.setRanks(3, 1);
 		
-		player.setRanks(3, 1);
-		
-		assertEquals(1, player.getRanks(3));
+		assertEquals(1, Player.getRanks(3));
 	}
 	
 	@Test
 	public void testRankPlayer4() {
-		Player player = new Player();
 		
-		player.setRanks(4, 4);
+		Player.setRanks(4, 4);
 		
-		assertEquals(4, player.getRanks(4));
+		assertEquals(4, Player.getRanks(4));
 	}
 	
 	@Test
 	public void testAdjustRankings() {
-		Player player = new Player();
 		
-		player.testAdd(2, 7);
-		player.testAdd(3, 12);
-		player.testAdd(4, 3);
+		Player.testAdd(2, 7);
+		Player.testAdd(3, 12);
+		Player.testAdd(4, 3);
 		
-		player.adjustRanks(1);
+		Player.adjustRanks(1);
 		
-		assertEquals(3, player.getRanks(4));
-		assertEquals(2, player.getRanks(3));
-		assertEquals(4, player.getRanks(2));
+		assertEquals(4, Player.getRanks(4));
+		assertEquals(3, Player.getRanks(3));
+		assertEquals(2, Player.getRanks(2));
 	}
+	
+	@Test
+	public void testResetSumPlayer1(){
+		
+		Player.testAdd(1, 15);
+		
+		assertEquals(0, Player.returnResetSum(1));
+		
+	}
+	
+	@Test
+	public void testResetSumPlayer2(){
+		
+		Player.testAdd(2, 15);
+		
+		assertEquals(0, Player.returnResetSum(2));
+		
+	}
+	
+	@Test
+	public void testResetSumPlayer3(){
+		
+		Player.testAdd(3, 15);
+		
+		assertEquals(0, Player.returnResetSum(3));
+		
+	}
+	
+	@Test
+	public void testResetSumPlayer4(){
+		
+		Player.testAdd(4, 15);
+		
+		assertEquals(0, Player.returnResetSum(4));
+		
+	}
+	
+	@Test
+	public void calcAvgPlayer1(){
+		
+		Player.testAdd(1, 10);
+		
+		assertEquals(1, Player.calcAvg(1), .1);
+		
+	}
+	
+	@Test
+	public void calcAvgPlayer2(){
+		
+		Player.testAdd(2, 10);
+		
+		assertEquals(2, Player.calcAvg(2), .1);
+		
+	}
+	
+	@Test
+	public void calcAvgPlayer3(){
+		
+		Player.testAdd(3, 10);
+		
+		assertEquals(3, Player.calcAvg(3), .1);
+		
+	}
+	
+	@Test
+	public void calcAvgPlayer4(){
+		
+		Player.testAdd(4, 10);
+		
+		assertEquals(4, Player.calcAvg(4), .1);
+		
+	}
+	
 }
