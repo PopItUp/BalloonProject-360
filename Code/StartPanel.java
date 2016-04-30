@@ -4,22 +4,14 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import javax.swing.LayoutStyle.ComponentPlacement;
-
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
 public class StartPanel extends JPanel {
-	int count = 0;
-	ArrayList<String> players = new ArrayList<String>();
-	private String playerText;
 	private JTextField userTextField, passTextField;
-	private JLabel titleLabel, balloonGif, startLabel, userLabel, passLabel; 
+	private JLabel titleLabel, balloonGif, startLabel, userLabel, passLabel, hiLabel; 
 	private JButton loginButton; 
 	private JRadioButton player1Radio, player2Radio, player3Radio, player4Radio;
 
@@ -60,13 +52,19 @@ public class StartPanel extends JPanel {
 		player2Radio = new JRadioButton("Black Widow");
 		player4Radio = new JRadioButton("Captain America\n");
 		
+		hiLabel = new JLabel("Hi, ");
+		hiLabel.setForeground(Color.WHITE);
+		hiLabel.setFont(new Font("Marker Felt", Font.PLAIN, 13));
+		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(231)
+							.addGap(26)
+							.addComponent(hiLabel, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
+							.addGap(82)
 							.addComponent(titleLabel))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(237)
@@ -99,14 +97,20 @@ public class StartPanel extends JPanel {
 								.addComponent(player2Radio, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(loginButton)))
-					.addContainerGap(32, Short.MAX_VALUE))
+					.addContainerGap(26, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(23, Short.MAX_VALUE)
-					.addComponent(titleLabel)
-					.addGap(36)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap(23, Short.MAX_VALUE)
+							.addComponent(titleLabel)
+							.addGap(36))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(89)
+							.addComponent(hiLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)))
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(userTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(userLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
@@ -133,61 +137,6 @@ public class StartPanel extends JPanel {
 					.addContainerGap(323, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
-		
-		ButtonListener listener = new ButtonListener();
-		loginButton.addActionListener(listener);
-		userTextField.addActionListener(listener);
-		passTextField.addActionListener(listener);
-	}
-	
-	private class ButtonListener implements ActionListener
-	{
-		public void actionPerformed (ActionEvent event)
-		{	
-			count++;
-			playerText += ",";
-			playerText += userTextField.getText();
-			playerText += "," + passTextField.getText();
-			//System.out.println(playerText);
-			
-			//players.add(playerText);
-			
-			Object source = event.getSource();
-			if(source == loginButton)
-			{
-				loginButton.setText("logout");
-				//loginButton.setText("logout");
-				String[] names = playerText.split(",");
-				//nameLabel.setText("Hi, " + names[1]);
-			
-				if(player1Radio.isSelected())
-				{
-					count++;
-					players.add(count + "Ironman");
-					player1Radio.setVisible(false);
-				}
-				if(player2Radio.isSelected())
-				{
-					count++;
-					players.add(count + "Captain America");
-					player2Radio.setVisible(false);
-				}
-				if(player3Radio.isSelected())
-				{
-					count++;
-					players.add(count + "Black Widow");
-					player3Radio.setVisible(false);
-				}
-				if(player4Radio.isSelected())
-				{
-					count++;
-					players.add(count + "Spiderman");
-					player4Radio.setVisible(false);
-				}
-				
-			//	GamePanel panel = new GamePanel(players);
-				BalloonGame.names(players);
-			}
-		}
+
 	}
 }
