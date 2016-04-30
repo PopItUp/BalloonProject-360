@@ -217,6 +217,6 @@ public class GamePanel extends JPanel
 				updateUI();
 			}
 		}
-
+}
 
 
