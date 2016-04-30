@@ -32,7 +32,9 @@ public class GamePanel extends JPanel{
 	private JLabel player1Dice, player2Dice, player3Dice, player4Dice; 
 	private JButton player1Roll, player2Roll, player3Roll, player4Roll, resetButton, logoutButton;
 	
-	
+	/** GamePanel - Constructor
+ 	* Creates the gamepanel and initializes the JLabels, JButtons, and JPanels. 
+ 	*/
 	public GamePanel() {
 		setBackground(new Color(51, 153, 255));
 		
