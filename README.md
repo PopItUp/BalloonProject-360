@@ -39,7 +39,7 @@ Database:
 
 Here's a Use Case Diagram of implemented User Stories:
 
-<img src='http://i.imgur.com/bQSG6VB.png' title='Use Case Diagram' width='' alt='Use Case Diagram' />
+<img src='http://i.imgur.com/f4z6DQl.png' title='Use Case Diagram' width='' alt='Use Case Diagram' />
 
 
 ## Notes
