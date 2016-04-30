@@ -18,6 +18,13 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
+/** CSE 360 Project - GamePanel class
+	 * @author PopItUp
+	 * Description: GamePanel extends JPanel and is where the main game is played. It will
+	 * 			contain the button to roll the die, increment the score, and 
+	 * 			declare the winner of the game.
+	 * 
+	 */
 public class GamePanel extends JPanel{
 
 	/**
@@ -283,8 +290,11 @@ public class GamePanel extends JPanel{
 	    resetButton.addActionListener(listener);
 	}
 		
-	    /** ButtonListener - class that implements ActionListener to account for button clicks **/ 
-		private class ButtonListener implements ActionListener
+/** ButtonListener will keep track of when the "roll die" JButton has been pressed, and will then update all the scores for the players in the game until someone wins.
+	 * @author PopItUp
+	 * @param event - The event in which the "roll die" button has been pressed
+	 */
+	 private class ButtonListener implements ActionListener
 			{
 				public void actionPerformed (ActionEvent event)
 				{
