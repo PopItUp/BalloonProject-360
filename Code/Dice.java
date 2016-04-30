@@ -39,19 +39,20 @@ public class Dice
 				System.out.print("The balloon is not popped");
 		}
 	}
-	/** return- returns the calculated total that represents the players current score 
-	 * 
-	 * @return int, returns the modified private instance variable of sum.
-	 * 
-	 ** reset- will reset the values as soon as the game is reseted i.e after pressing the Civil War-2 button
+	
+	 /** resetsum will reset the values as soon as the game is reseted i.e after pressing the Civil War-2 button
 	 *
-	 *@reset int, returns the sum which is assigned to 0. 
-	 **/
+	 *@return sum - the sum which is assigned to 0. 
+	 */
 	public int resetsum(){
 		sum = 0;
 		return sum;
 	}
-	
+	 
+	 /** return- returnsum the calculated total that represents the players current score 
+	 * 
+	 * @return sum - the modified private instance variable of sum.
+	 */
 	public int returnSum()
 	{
 		return sum;
