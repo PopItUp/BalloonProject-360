@@ -1,222 +1,248 @@
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+package me;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import java.awt.Color;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-/** CSE 360 Project - GamePanel class
- * @author PopItUp
- * Description: GamePanel is a panel created to feature a 
- *				the PopItUp game
- */
-public class GamePanel extends JPanel
-{
-	private JPanel wholePanel, winPanel, rollPanel, rollEntirePanel;
-	private JButton victory, rollDicePlayer1, rollDicePlayer2, rollDicePlayer3, rollDicePlayer4, rollDiceReset;
-	private JLabel win, test, player1, player2, player3, player4, test2, reset;
-	private int count1, count2, count3, count4;
-	private Dice Pl1, Pl2, Pl3, Pl4;
-	private boolean won = false;
-	
-	/** GamePanel - constructor that initializes and sets all the instance variables **/ 
-	public GamePanel()
-	{
+public class GamePanel extends JPanel {
 
-		wholePanel = new JPanel();
-		winPanel = new JPanel();
-		rollPanel = new JPanel();
-		rollEntirePanel = new JPanel();
-		test = new JLabel("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-				+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-		test2 = new JLabel(" ");
+	/**
+	 * Create the panel.
+	 */
+	public GamePanel() {
+		setBackground(new Color(51, 153, 204));
 		
-		rollDicePlayer1 = new JButton("Iron Man");
-		rollDicePlayer2 = new JButton("Captain America");
-		rollDicePlayer3 = new JButton("BlackWidow");
-		rollDicePlayer4 = new JButton("SpiderMan");
-		rollDiceReset   = new JButton("Civil War-2");
+		JPanel player1Panel = new JPanel();
+		player1Panel.setBackground(new Color(255, 102, 102));
 		
-		player1 = new JLabel("Player 1");
-		player1.setHorizontalAlignment(SwingConstants.CENTER);
-		player1.setVerticalAlignment(SwingConstants.CENTER);
-		player2 = new JLabel("Player 2");
-		player2.setHorizontalAlignment(SwingConstants.CENTER);
-		player2.setVerticalAlignment(SwingConstants.CENTER);
-		player3 = new JLabel("Player 3");
-		player3.setHorizontalAlignment(SwingConstants.CENTER);
-		player3.setVerticalAlignment(SwingConstants.CENTER);
-		player4 = new JLabel("Player 4");
-		player4.setHorizontalAlignment(SwingConstants.CENTER);
-		player4.setVerticalAlignment(SwingConstants.CENTER);
-		reset = new JLabel("Reseting the Game");
-		reset.setHorizontalAlignment(SwingConstants.CENTER);
-		reset.setHorizontalAlignment(SwingConstants.CENTER);
+		JPanel player2Panel = new JPanel();
+		player2Panel.setBackground(new Color(255, 204, 102));
 		
-		wholePanel.setLayout(new GridLayout(2,1));
-		wholePanel.add(test);
+		JPanel player3Panel = new JPanel();
+		player3Panel.setBackground(new Color(255, 102, 102));
 		
-		rollEntirePanel.setLayout(new FlowLayout());
-		rollEntirePanel.add(test2);
-		rollEntirePanel.add(rollPanel);
+		JPanel Player4Panel = new JPanel();
+		Player4Panel.setBackground(new Color(255, 204, 102));
 		
-		rollPanel.setLayout(new GridLayout(6,1));
-		rollPanel.add(rollDicePlayer1);
-		rollPanel.add(rollDicePlayer2);
-		rollPanel.add(player1);
-		rollPanel.add(player2);
-		rollPanel.add(rollDicePlayer3);
-		rollPanel.add(rollDicePlayer4);
-		rollPanel.add(player3);
-		rollPanel.add(player4);
-		rollPanel.add(rollDiceReset);
-		rollPanel.add(reset);
+		JButton logoutButton = new JButton("Logout");
 		
-		setLayout(new GridLayout(1,1));
-		add(wholePanel);
-		wholePanel.add(rollPanel);
-
-		ButtonListener listener = new ButtonListener();
-		rollDicePlayer1.addActionListener(listener);
-		rollDicePlayer2.addActionListener(listener);
-		rollDicePlayer3.addActionListener(listener);
-		rollDicePlayer4.addActionListener(listener);
-	    rollDiceReset.addActionListener(listener);
-	}
-
-	/** ButtonListener - class that implements ActionListener to account for button clicks **/ 
-	private class ButtonListener implements ActionListener
-		{
-			public void actionPerformed (ActionEvent event)
-			{
-				int x = (int)(Math.random() * 10);
-				Object source = event.getSource();
-				if(source == victory){
-					winPanel.setVisible(true);
-				}
-				else if(source == rollDicePlayer1)
-				{
-					Player.addRoll(1);
-					Player.testAdd(1, x);
-					if(Player.returnSumPlayer(1) >= 20 && won == false)
-					{
-						Player.addGame();
-						player1.setText("Iron Man" + Player.returnSumPlayer(1));
-						test.setText("Iron Man WINS!");
-						test.setFont(new Font("Serif", Font.BOLD, 80));
-						test.setHorizontalAlignment(SwingConstants.CENTER);
-						test.setVerticalAlignment(SwingConstants.CENTER);
-						won = true;
-						Player.addWin(1);
-						Player.setRanks(1, 1);
-						Player.adjustRanks(1);
-					}
-					else{
-						player1.setHorizontalAlignment(SwingConstants.CENTER);
-						player1.setVerticalAlignment(SwingConstants.CENTER);
-						player1.setText("Player 1:" + Player.returnSumPlayer(1));
-						/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-				+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-						test.setFont(new Font("Serif", Font.BOLD, 30));
-						test.setHorizontalAlignment(SwingConstants.CENTER);
-						test.setVerticalAlignment(SwingConstants.CENTER);*/}
-				}
-				else if(source == rollDicePlayer2)
-				{
-					Player.addRoll(2);
-					Player.testAdd(2, x);
-					if(Player.returnSumPlayer(2) >= 20 && won == false)
-					{
-						Player.addGame();
-						player2.setText("Captain America" + Player.returnSumPlayer(2));
-						test.setText("Captain America WINS!");
-						test.setFont(new Font("Serif", Font.BOLD, 80));
-						test.setHorizontalAlignment(SwingConstants.CENTER);
-						test.setVerticalAlignment(SwingConstants.CENTER);
-						won = true;
-						Player.addWin(2);
-						Player.setRanks(2, 1);
-						Player.adjustRanks(2);
-					}	
-					else{
-						player2.setText("Player 2:" + Player.returnSumPlayer(2));
-						/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-								+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-						test.setFont(new Font("Serif", Font.BOLD, 30));
-						test.setHorizontalAlignment(SwingConstants.CENTER);
-						test.setVerticalAlignment(SwingConstants.CENTER);*/}
-				}
-				else if(source == rollDicePlayer3)
-				{
-					Player.addRoll(3);
-					Player.testAdd(3, x);
-					if(Player.returnSumPlayer(3) >= 20 && won == false)
-					{
-						Player.addGame();
-						player3.setText("BlackWidow" + Player.returnSumPlayer(3));
-						test.setText("BlackWidow Wins!!");
-						test.setFont(new Font("Serif", Font.BOLD, 80));
-						test.setHorizontalAlignment(SwingConstants.CENTER);
-						test.setVerticalAlignment(SwingConstants.CENTER);
-						won = true;
-						Player.addWin(3);
-						Player.setRanks(3, 1);
-						Player.adjustRanks(3);
-					}
-					else{
-						player3.setText("Player 3:" + Player.returnSumPlayer(3));
-						/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-								+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-						test.setFont(new Font("Serif", Font.BOLD, 30));
-						test.setHorizontalAlignment(SwingConstants.CENTER);
-						test.setVerticalAlignment(SwingConstants.CENTER);*/}
-				}
-				else if(source == rollDicePlayer4)
-				{
-					Player.addRoll(4);
-					Player.testAdd(4, x);
-					if(Player.returnSumPlayer(4) >= 20 && won == false)
-					{
-						Player.addGame();
-						player4.setText("SpiderMan" + Player.returnSumPlayer(4));
-						test.setText("SpiderMan!");
-						test.setFont(new Font("Serif", Font.BOLD, 80));
-						test.setHorizontalAlignment(SwingConstants.CENTER);
-						test.setVerticalAlignment(SwingConstants.CENTER);
-						won = true;
-						Player.addWin(4);
-						Player.setRanks(4, 1);
-						Player.adjustRanks(4);
-					}
-					else{
-						player4.setText("Player 4:" + Player.returnSumPlayer(4));
-						/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-								+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-						test.setFont(new Font("Serif", Font.BOLD, 30));
-						test.setHorizontalAlignment(SwingConstants.CENTER);
-						test.setVerticalAlignment(SwingConstants.CENTER);*/}
-				}
-				else if(source == rollDiceReset)
-				{
-					player1.setText("Player 1:" + Player.returnResetSum(1));
-					player2.setText("Player 2:" + Player.returnResetSum(2));
-					player3.setText("Player 3:" + Player.returnResetSum(3));
-					player4.setText("Player 4:" + Player.returnResetSum(4));
-					won = false;
-					test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-								+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-					test.setFont(new Font("Serfi", Font.BOLD,10));
-					test.setHorizontalAlignment(SwingConstants.CENTER);
-					test.setVerticalAlignment(SwingConstants.CENTER);
-				}
-				
-				updateUI();
+		JLabel IntroLabel = new JLabel("New label");
+		
+		JButton resetButton = new JButton("Reset");
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(player1Panel, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(player2Panel, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+							.addGap(24)
+							.addComponent(player3Panel, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(Player4Panel, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(resetButton)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(IntroLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(logoutButton)))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(logoutButton)
+								.addComponent(resetButton)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(28)
+							.addComponent(IntroLabel, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)))
+					.addGap(28)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(Player4Panel, GroupLayout.PREFERRED_SIZE, 408, GroupLayout.PREFERRED_SIZE)
+						.addComponent(player3Panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(player2Panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(player1Panel, GroupLayout.PREFERRED_SIZE, 409, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+		
+		JLabel player4Label = new JLabel("Player 4");
+		
+		JLabel Player4Balloon = new JLabel("Picture Here");
+		
+		JLabel player4Dice = new JLabel("Picture Here");
+		
+		JButton player4Roll = new JButton("Roll Dice");
+		GroupLayout gl_Player4Panel = new GroupLayout(Player4Panel);
+		gl_Player4Panel.setHorizontalGroup(
+			gl_Player4Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Player4Panel.createSequentialGroup()
+					.addContainerGap(57, Short.MAX_VALUE)
+					.addComponent(player4Label)
+					.addGap(54))
+				.addGroup(gl_Player4Panel.createSequentialGroup()
+					.addGap(18)
+					.addGroup(gl_Player4Panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(player4Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Player4Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(20, Short.MAX_VALUE))
+				.addGroup(gl_Player4Panel.createSequentialGroup()
+					.addGap(28)
+					.addComponent(player4Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(32, Short.MAX_VALUE))
+		);
+		gl_Player4Panel.setVerticalGroup(
+			gl_Player4Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Player4Panel.createSequentialGroup()
+					.addGap(38)
+					.addComponent(player4Label)
+					.addGap(29)
+					.addComponent(Player4Balloon, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+					.addComponent(player4Roll)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(player4Dice, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addGap(22))
+		);
+		Player4Panel.setLayout(gl_Player4Panel);
+		
+		JLabel player3Label = new JLabel("Player 3");
+		
+		JLabel player3Balloon = new JLabel("Picture Here");
+		
+		JLabel player3Dice = new JLabel("Picture Here");
+		
+		JButton player3Roll = new JButton("Roll Dice");
+		GroupLayout gl_player3Panel = new GroupLayout(player3Panel);
+		gl_player3Panel.setHorizontalGroup(
+			gl_player3Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_player3Panel.createSequentialGroup()
+					.addGroup(gl_player3Panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_player3Panel.createSequentialGroup()
+							.addGap(55)
+							.addComponent(player3Label))
+						.addGroup(gl_player3Panel.createSequentialGroup()
+							.addGap(19)
+							.addGroup(gl_player3Panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(player3Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+								.addComponent(player3Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(19, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_player3Panel.createSequentialGroup()
+					.addContainerGap(31, Short.MAX_VALUE)
+					.addComponent(player3Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addGap(29))
+		);
+		gl_player3Panel.setVerticalGroup(
+			gl_player3Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_player3Panel.createSequentialGroup()
+					.addGap(41)
+					.addComponent(player3Label)
+					.addGap(35)
+					.addComponent(player3Balloon, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+					.addComponent(player3Roll)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(player3Dice, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addGap(18))
+		);
+		player3Panel.setLayout(gl_player3Panel);
+		
+		JLabel player2Label = new JLabel("Player 2");
+		
+		JLabel player2Balloon = new JLabel("Picture Here");
+		
+		JLabel player2Dice = new JLabel("Picture Here");
+		
+		JButton player2Roll = new JButton("Roll Dice");
+		GroupLayout gl_player2Panel = new GroupLayout(player2Panel);
+		gl_player2Panel.setHorizontalGroup(
+			gl_player2Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_player2Panel.createSequentialGroup()
+					.addGroup(gl_player2Panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_player2Panel.createSequentialGroup()
+							.addGap(50)
+							.addComponent(player2Label, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_player2Panel.createSequentialGroup()
+							.addGap(19)
+							.addGroup(gl_player2Panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(player2Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+								.addComponent(player2Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_player2Panel.createSequentialGroup()
+							.addGap(28)
+							.addComponent(player2Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(19, Short.MAX_VALUE))
+		);
+		gl_player2Panel.setVerticalGroup(
+			gl_player2Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_player2Panel.createSequentialGroup()
+					.addGap(40)
+					.addComponent(player2Label)
+					.addGap(38)
+					.addComponent(player2Balloon, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+					.addComponent(player2Roll)
+					.addGap(18)
+					.addComponent(player2Dice, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addGap(14))
+		);
+		player2Panel.setLayout(gl_player2Panel);
+		
+		JLabel player1Label = new JLabel("Player 1");
+		
+		JLabel player1Balloon = new JLabel("Picture Here");
+		
+		JButton player1Roll = new JButton("Roll Dice");
+		player1Roll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 			}
-		}
+		});
+		
+		JLabel player1Dice = new JLabel("Picture Here");
+		GroupLayout gl_player1Panel = new GroupLayout(player1Panel);
+		gl_player1Panel.setHorizontalGroup(
+			gl_player1Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_player1Panel.createSequentialGroup()
+					.addGroup(gl_player1Panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_player1Panel.createSequentialGroup()
+							.addGap(46)
+							.addComponent(player1Label))
+						.addGroup(gl_player1Panel.createSequentialGroup()
+							.addGap(18)
+							.addGroup(gl_player1Panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(player1Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+								.addComponent(player1Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_player1Panel.createSequentialGroup()
+							.addGap(30)
+							.addComponent(player1Roll)))
+					.addContainerGap(20, Short.MAX_VALUE))
+		);
+		gl_player1Panel.setVerticalGroup(
+			gl_player1Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_player1Panel.createSequentialGroup()
+					.addGap(39)
+					.addComponent(player1Label)
+					.addGap(32)
+					.addComponent(player1Balloon, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addGap(30)
+					.addComponent(player1Roll)
+					.addGap(26)
+					.addComponent(player1Dice, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(9, Short.MAX_VALUE))
+		);
+		player1Panel.setLayout(gl_player1Panel);
+		setLayout(groupLayout);
+
+	}
 }
-
-
