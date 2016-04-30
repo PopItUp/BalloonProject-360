@@ -1,9 +1,8 @@
-// CSE 360 Project
+//CSE 360 Project
 // Name: PopItUp
 // Description: GamePanel is a panel created to feature a 
 //				the PopItUp game
 //package cse360BalloonGame;
-package me;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -14,6 +13,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class StatisticsPanel extends JPanel {
 	
@@ -227,7 +229,36 @@ public class StatisticsPanel extends JPanel {
 		);
 		setLayout(groupLayout);
 
+		ButtonListener listener = new ButtonListener();
+		refreshButton.addActionListener(listener);
 	}
+	
+	/** ButtonListener will keep track of when the "victory' JButton has been pressed, and will then update all the statistics for each player from the most recent game.
+	 * @author PopItUp
+	 * @param event - The event in which the "victory" JButton is pressed
+	 */
+	private class ButtonListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			Object source = event.getSource();
+			if(source == refreshButton)
+			{
+				player1Rolls.setText("" + Player.getRolls(1));
+				player2Rolls.setText("" + Player.getRolls(2));
+				player3Rolls.setText("" + Player.getRolls(3));
+				player4Rolls.setText("" + Player.getRolls(4));
 
+				player1Ranking.setText("" + Player.getRanks(1));
+				player2Ranking.setText("" + Player.getRanks(2));
+				player3Ranking.setText("" + Player.getRanks(3));
+				player4Ranking.setText("" + Player.getRanks(4));
+				
+				player1Avg.setText("" + Player.calcAvg(1));
+				player2Avg.setText("" + Player.calcAvg(2));
+				player3Avg.setText("" + Player.calcAvg(3));
+				player4Avg.setText("" + Player.calcAvg(4));
+			}
+		}
+	}
 }
-
