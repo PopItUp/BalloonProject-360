@@ -9,11 +9,13 @@ import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JRadioButton;
 
 public class StartPanel extends JPanel {
 	private JTextField userTextField, passTextField;
 	private JLabel titleLabel, balloonGif, startLabel, userLabel, passLabel; 
 	private JButton loginButton; 
+	private JRadioButton player1Radio, player2Radio, player3Radio, player4Radio;
 
 	/**
 	 * Create the panel.
@@ -47,53 +49,82 @@ public class StartPanel extends JPanel {
 		passLabel.setForeground(Color.WHITE);
 		passLabel.setFont(new Font("Marker Felt", Font.PLAIN, 13));
 		
+		player1Radio = new JRadioButton("Iron Man");
+		player3Radio = new JRadioButton("Spider-Man");
+		player2Radio = new JRadioButton("Black Widow");
+		player4Radio = new JRadioButton("Captain America\n");
+		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(115, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(231)
+							.addComponent(titleLabel))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(237)
+							.addComponent(startLabel))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(156)
+							.addComponent(balloonGif, GroupLayout.PREFERRED_SIZE, 345, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(137)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(userLabel)
+								.addComponent(passLabel, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(58)
-									.addComponent(startLabel))
-								.addComponent(balloonGif, GroupLayout.PREFERRED_SIZE, 345, GroupLayout.PREFERRED_SIZE))
-							.addGap(171))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(userLabel)
+									.addGap(15)
+									.addComponent(userTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(18)
+									.addComponent(passTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+							.addGap(11)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(player1Radio)
+									.addGap(18))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(player3Radio)
+									.addPreferredGap(ComponentPlacement.RELATED)))
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(player4Radio, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
+								.addComponent(player2Radio, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(userTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(70)
-							.addComponent(passLabel, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(passTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(62)
-							.addComponent(loginButton)
-							.addGap(46))))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(229)
-					.addComponent(titleLabel)
-					.addContainerGap(250, Short.MAX_VALUE))
+							.addComponent(loginButton)))
+					.addContainerGap(32, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(27)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-							.addComponent(loginButton)
-							.addComponent(passTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(userTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(userLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
-						.addComponent(passLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
-					.addGap(26)
+					.addContainerGap(23, Short.MAX_VALUE)
 					.addComponent(titleLabel)
-					.addGap(10)
+					.addGap(36)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(userTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(userLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(player1Radio)
+						.addComponent(player2Radio))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(player3Radio)
+								.addComponent(player4Radio))
+							.addGap(8))
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+							.addComponent(passTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(passLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)))
+					.addGap(32)
 					.addComponent(balloonGif, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE)
-					.addGap(16)
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addComponent(startLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(84, Short.MAX_VALUE))
+					.addGap(24))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(148)
+					.addComponent(loginButton)
+					.addContainerGap(323, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 
