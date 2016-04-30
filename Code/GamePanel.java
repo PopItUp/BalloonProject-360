@@ -1,35 +1,28 @@
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
 import java.awt.Color;
 import java.awt.Font;
-import java.util.ArrayList;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
 //import GamePanel.ButtonListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
-import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 /** CSE 360 Project - GamePanel class
-	 * @author PopItUp
-	 * Description: GamePanel extends JPanel and is where the main game is played. It will
-	 * 			contain the button to roll the die, increment the score, and 
-	 * 			declare the winner of the game.
-	 * 
-	 */
+ * @author PopItUp
+ * Description: GamePanel extends JPanel and is where the main game is played. It will
+ * 			contain the button to roll the die, increment the score, and 
+ * 			declare the winner of the game.
+ * 
+ */
 public class GamePanel extends JPanel{
 
-	/**
-	 * Create the panel.
-	 */
 	ArrayList<String> players = new ArrayList<String>();
 	private boolean won = false;
 	private JPanel player1Panel, player2Panel, player3Panel, player4Panel; 
@@ -38,6 +31,8 @@ public class GamePanel extends JPanel{
 	private JLabel player1Balloon, player2Balloon, player3Balloon, player4Balloon; 
 	private JLabel player1Dice, player2Dice, player3Dice, player4Dice; 
 	private JButton player1Roll, player2Roll, player3Roll, player4Roll, resetButton, logoutButton;
+	
+	
 	public GamePanel() {
 		setBackground(new Color(51, 153, 255));
 		
@@ -58,36 +53,75 @@ public class GamePanel extends JPanel{
 		introLabel = new JLabel("New label");
 		
 		player1Label = new JLabel("Player 1");
+		player1Label.setForeground(new Color(255, 255, 255));
+		player1Label.setFont(new Font("Marker Felt", Font.PLAIN, 15));
+		
 		player2Label = new JLabel("Player 2");
+		player2Label.setForeground(new Color(255, 255, 255));
+		player2Label.setFont(new Font("Marker Felt", Font.PLAIN, 15));
+		
 		player3Label = new JLabel("Player 3");
+		player3Label.setForeground(new Color(255, 255, 255));
+		player3Label.setFont(new Font("Marker Felt", Font.PLAIN, 15));
+		
 		player4Label = new JLabel("Player 4");
+		player4Label.setForeground(new Color(255, 255, 255));
+		player4Label.setFont(new Font("Marker Felt", Font.PLAIN, 15));
 		
-		player1Balloon = new JLabel("Picture Here");
-		player2Balloon = new JLabel("Picture Here");
-		player3Balloon = new JLabel("Picture Here");
-		player4Balloon = new JLabel("Picture Here");
+		player1Balloon = new JLabel(new ImageIcon("balloonpops.gif"));
+		player2Balloon = new JLabel(new ImageIcon("balloonpops.gif"));
+		player3Balloon = new JLabel(new ImageIcon("balloonpops.gif"));
+		player4Balloon = new JLabel(new ImageIcon("balloonpops.gif"));
 		
-		player1Dice = new JLabel("Picture Here");
-		player2Dice = new JLabel("Picture Here");
-		player3Dice = new JLabel("Picture Here");
-		player4Dice = new JLabel("Picture Here");
+		player1Balloon.setVisible(false);
+		player2Balloon.setVisible(false);
+		player3Balloon.setVisible(false);
+		player4Balloon.setVisible(false);
+		
+		player1Dice = new JLabel(new ImageIcon("dice.gif"));
+		player1Dice.setVisible(false);
+		
+		player2Dice = new JLabel(new ImageIcon("dice.gif"));
+		player2Dice.setVisible(false);
+		
+		player3Dice = new JLabel(new ImageIcon("dice.gif"));
+		player3Dice.setVisible(false);
+		
+		player4Dice = new JLabel(new ImageIcon("dice.gif"));
+		player4Dice.setVisible(false);
 		
 		player1Score = new JLabel("Score: ");
+		player1Score.setForeground(new Color(255, 255, 255));
+		player1Score.setFont(new Font("Marker Felt", Font.PLAIN, 15));
+		
 		player2Score = new JLabel("Score: ");
+		player2Score.setForeground(new Color(255, 255, 255));
+		player2Score.setFont(new Font("Marker Felt", Font.PLAIN, 15));
+		
 		player3Score = new JLabel("Score: ");
+		player3Score.setForeground(new Color(255, 255, 255));
+		player3Score.setFont(new Font("Marker Felt", Font.PLAIN, 15));
+		
 		player4Score = new JLabel("Score: ");
+		player4Score.setForeground(new Color(255, 255, 255));
+		player4Score.setFont(new Font("Marker Felt", Font.PLAIN, 15));
 		
 		player1Roll = new JButton("Roll Dice");
 		player2Roll = new JButton("Roll Dice");
 		player3Roll = new JButton("Roll Dice");
 		player4Roll = new JButton("Roll Dice");
 		
+		String  sText  = "<html>Instructions: Roll the die, if the die rolls to be even then the number is <br/> "
+				+ "added on, otherwise if the die shows to be odd nothing is added. <br/> The first to 20 pops the balloon and wins!</html>";
+		introLabel.setText (sText);
+		introLabel.setForeground(new Color(255, 255, 255));
+		introLabel.setFont(new Font("Marker Felt", Font.PLAIN, 15));
 		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(player1Panel, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
@@ -116,8 +150,8 @@ public class GamePanel extends JPanel{
 								.addComponent(resetButton)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(28)
-							.addComponent(introLabel, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)))
-					.addGap(28)
+							.addComponent(introLabel, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(player4Panel, GroupLayout.PREFERRED_SIZE, 408, GroupLayout.PREFERRED_SIZE)
 						.addComponent(player3Panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -130,22 +164,22 @@ public class GamePanel extends JPanel{
 		gl_player4Panel.setHorizontalGroup(
 			gl_player4Panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_player4Panel.createSequentialGroup()
-					.addContainerGap(57, Short.MAX_VALUE)
+					.addContainerGap(65, Short.MAX_VALUE)
 					.addComponent(player4Label)
 					.addGap(54))
 				.addGroup(gl_player4Panel.createSequentialGroup()
-					.addGap(28)
-					.addComponent(player4Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(32, Short.MAX_VALUE))
-				.addGroup(gl_player4Panel.createSequentialGroup()
 					.addGap(18)
-					.addGroup(gl_player4Panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(player4Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
-						.addComponent(player4Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
+					.addComponent(player4Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(20, Short.MAX_VALUE))
 				.addGroup(gl_player4Panel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(player4Score, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(20, Short.MAX_VALUE))
+				.addGroup(gl_player4Panel.createSequentialGroup()
+					.addGap(18)
+					.addGroup(gl_player4Panel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(player4Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+						.addComponent(player4Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(20, Short.MAX_VALUE))
 		);
 		gl_player4Panel.setVerticalGroup(
@@ -155,19 +189,19 @@ public class GamePanel extends JPanel{
 					.addComponent(player4Label)
 					.addGap(29)
 					.addComponent(player4Balloon, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(player4Roll)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGap(18)
 					.addComponent(player4Score)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
 					.addComponent(player4Dice, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+					.addGap(12))
 		);
 		player4Panel.setLayout(gl_player4Panel);
 		
 		GroupLayout gl_player3Panel = new GroupLayout(player3Panel);
 		gl_player3Panel.setHorizontalGroup(
-			gl_player3Panel.createParallelGroup(Alignment.TRAILING)
+			gl_player3Panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_player3Panel.createSequentialGroup()
 					.addGroup(gl_player3Panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_player3Panel.createSequentialGroup()
@@ -176,32 +210,29 @@ public class GamePanel extends JPanel{
 						.addGroup(gl_player3Panel.createSequentialGroup()
 							.addGap(19)
 							.addGroup(gl_player3Panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(player3Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+								.addComponent(player3Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_player3Panel.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_player3Panel.createParallelGroup(Alignment.TRAILING)
 								.addComponent(player3Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
-								.addComponent(player3Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))))
+								.addComponent(player3Score, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap(19, Short.MAX_VALUE))
-				.addGroup(gl_player3Panel.createSequentialGroup()
-					.addContainerGap(31, Short.MAX_VALUE)
-					.addComponent(player3Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-					.addGap(29))
-				.addGroup(Alignment.LEADING, gl_player3Panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(player3Score, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(20, Short.MAX_VALUE))
 		);
 		gl_player3Panel.setVerticalGroup(
 			gl_player3Panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_player3Panel.createSequentialGroup()
 					.addGap(41)
 					.addComponent(player3Label)
-					.addGap(35)
+					.addGap(23)
 					.addComponent(player3Balloon, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-					.addComponent(player3Roll)
 					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(player3Roll)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(player3Score)
-					.addGap(2)
+					.addGap(18)
 					.addComponent(player3Dice, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+					.addContainerGap(22, Short.MAX_VALUE))
 		);
 		player3Panel.setLayout(gl_player3Panel);
 		
@@ -214,32 +245,35 @@ public class GamePanel extends JPanel{
 							.addGap(50)
 							.addComponent(player2Label, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_player2Panel.createSequentialGroup()
-							.addGap(28)
-							.addComponent(player2Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_player2Panel.createSequentialGroup()
-							.addGap(19)
+							.addGap(18)
 							.addGroup(gl_player2Panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(player2Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_player2Panel.createSequentialGroup()
+									.addGap(6)
+									.addComponent(player2Roll, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
 								.addComponent(player2Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_player2Panel.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(player2Score, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(19, Short.MAX_VALUE))
+							.addGroup(gl_player2Panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_player2Panel.createSequentialGroup()
+									.addGap(6)
+									.addComponent(player2Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
+								.addComponent(player2Score, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(20, Short.MAX_VALUE))
 		);
 		gl_player2Panel.setVerticalGroup(
 			gl_player2Panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_player2Panel.createSequentialGroup()
 					.addGap(40)
 					.addComponent(player2Label)
-					.addGap(38)
+					.addGap(26)
 					.addComponent(player2Balloon, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-					.addComponent(player2Roll)
-					.addGap(4)
-					.addComponent(player2Score)
 					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(player2Roll)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(player2Score)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(player2Dice, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+					.addGap(26))
 		);
 		player2Panel.setLayout(gl_player2Panel);
 		
@@ -247,37 +281,35 @@ public class GamePanel extends JPanel{
 		gl_player1Panel.setHorizontalGroup(
 			gl_player1Panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_player1Panel.createSequentialGroup()
+					.addGap(18)
 					.addGroup(gl_player1Panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_player1Panel.createSequentialGroup()
-							.addGap(46)
-							.addComponent(player1Label))
-						.addGroup(gl_player1Panel.createSequentialGroup()
-							.addGap(18)
-							.addGroup(gl_player1Panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(player1Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
-								.addComponent(player1Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_player1Panel.createSequentialGroup()
-							.addGap(30)
-							.addComponent(player1Roll))
-						.addGroup(Alignment.TRAILING, gl_player1Panel.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(player1Score, GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)))
+						.addComponent(player1Balloon, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+						.addComponent(player1Dice, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+						.addComponent(player1Roll))
+					.addGap(20))
+				.addGroup(gl_player1Panel.createSequentialGroup()
+					.addGap(49)
+					.addComponent(player1Label)
+					.addContainerGap(70, Short.MAX_VALUE))
+				.addGroup(gl_player1Panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(player1Score, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
 					.addGap(20))
 		);
 		gl_player1Panel.setVerticalGroup(
 			gl_player1Panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_player1Panel.createSequentialGroup()
-					.addGap(39)
+					.addGap(40)
 					.addComponent(player1Label)
-					.addGap(32)
+					.addGap(31)
 					.addComponent(player1Balloon, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addGap(30)
-					.addComponent(player1Roll)
-					.addGap(4)
-					.addComponent(player1Score)
 					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(player1Roll)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(player1Score)
+					.addGap(22)
 					.addComponent(player1Dice, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(9, Short.MAX_VALUE))
+					.addContainerGap(11, Short.MAX_VALUE))
 		);
 		player1Panel.setLayout(gl_player1Panel);
 		setLayout(groupLayout);
@@ -290,11 +322,11 @@ public class GamePanel extends JPanel{
 	    resetButton.addActionListener(listener);
 	}
 		
-/** ButtonListener will keep track of when the "roll die" JButton has been pressed, and will then update all the scores for the players in the game until someone wins.
+	/** ButtonListener will keep track of when the "roll die" JButton has been pressed, and will then update all the scores for the players in the game until someone wins.
 	 * @author PopItUp
 	 * @param event - The event in which the "roll die" button has been pressed
 	 */
-	 private class ButtonListener implements ActionListener
+		private class ButtonListener implements ActionListener
 			{
 				public void actionPerformed (ActionEvent event)
 				{
@@ -302,18 +334,20 @@ public class GamePanel extends JPanel{
 					Object source = event.getSource();
 					if(source == player1Roll)
 					{
+						player1Dice.setVisible(true);
+						player2Dice.setVisible(false);
+						player3Dice.setVisible(false);
+						player4Dice.setVisible(false);
 						Player.addRoll(1);
 						Player.testAdd(1, x);
 						if(Player.returnSumPlayer(1) >= 20 && won == false)
 						{
 							Player.addGame();
-							//System.out.println("I HATE YOU");
-							//System.out.println("BITCH PLEASE: " + one);
 							player1Score.setText("Iron Man:" + Player.returnSumPlayer(1));
 							introLabel.setText("Iron Man WINS!");
-							introLabel.setFont(new Font("Serif", Font.BOLD, 80));
-							introLabel.setHorizontalAlignment(SwingConstants.CENTER);
-							introLabel.setVerticalAlignment(SwingConstants.CENTER);
+							player1Balloon.setVisible(true);
+							introLabel.setForeground(new Color(255, 255, 255));
+							introLabel.setFont(new Font("Marker Felt", Font.PLAIN, 32));
 							won = true;
 							Player.addWin(1);
 							Player.setRanks(1, 1);
@@ -323,14 +357,15 @@ public class GamePanel extends JPanel{
 							player1Score.setHorizontalAlignment(SwingConstants.CENTER);
 							player1Score.setVerticalAlignment(SwingConstants.CENTER);
 							player1Score.setText("Ironman:" + Player.returnSumPlayer(1));
-							/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-					+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-							test.setFont(new Font("Serif", Font.BOLD, 30));
-							test.setHorizontalAlignment(SwingConstants.CENTER);
-							test.setVerticalAlignment(SwingConstants.CENTER);*/}
+						}
 					}
 					else if(source == player2Roll)
 					{
+						player1Dice.setVisible(false);
+						player2Dice.setVisible(true);
+						player3Dice.setVisible(false);
+						player4Dice.setVisible(false);
+						
 						Player.addRoll(2);
 						Player.testAdd(2, x);
 						if(Player.returnSumPlayer(2) >= 20 && won == false)
@@ -338,49 +373,47 @@ public class GamePanel extends JPanel{
 							Player.addGame();
 							player2Score.setText("Captain America:" + Player.returnSumPlayer(2));
 							introLabel.setText("Captain America WINS!");
-							introLabel.setFont(new Font("Serif", Font.BOLD, 80));
-							introLabel.setHorizontalAlignment(SwingConstants.CENTER);
-							introLabel.setVerticalAlignment(SwingConstants.CENTER);
+							player2Balloon.setVisible(true);
+							introLabel.setForeground(new Color(255, 255, 255));
+							introLabel.setFont(new Font("Marker Felt", Font.PLAIN, 32));
 							won = true;
 							Player.addWin(2);
 							Player.setRanks(2, 1);
 							Player.adjustRanks(2);
 						}	
-						else{
+						else
 							player2Score.setText("Captain America:" + Player.returnSumPlayer(2));
-							/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-									+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-							test.setFont(new Font("Serif", Font.BOLD, 30));
-							test.setHorizontalAlignment(SwingConstants.CENTER);
-							test.setVerticalAlignment(SwingConstants.CENTER);*/}
 					}
 					else if(source == player3Roll)
 					{
+						player1Dice.setVisible(false);
+						player2Dice.setVisible(false);
+						player3Dice.setVisible(true);
+						player4Dice.setVisible(false);
 						Player.addRoll(3);
 						Player.testAdd(3, x);
 						if(Player.returnSumPlayer(3) >= 20 && won == false)
 						{
 							Player.addGame();
 							player3Score.setText("Black Widow:" + Player.returnSumPlayer(3));
-							introLabel.setText("BlackWidow Wins!!");
-							introLabel.setFont(new Font("Serif", Font.BOLD, 80));
-							introLabel.setHorizontalAlignment(SwingConstants.CENTER);
-							introLabel.setVerticalAlignment(SwingConstants.CENTER);
+							introLabel.setText("Black Widow Wins!!");
+							player3Balloon.setVisible(true);
+							introLabel.setForeground(new Color(255, 255, 255));
+							introLabel.setFont(new Font("Marker Felt", Font.PLAIN, 32));
 							won = true;
 							Player.addWin(3);
 							Player.setRanks(3, 1);
 							Player.adjustRanks(3);
 						}
-						else{
+						else
 							player3Score.setText("Black Widow:"  + Player.returnSumPlayer(3));
-							/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-									+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-							test.setFont(new Font("Serif", Font.BOLD, 30));
-							test.setHorizontalAlignment(SwingConstants.CENTER);
-							test.setVerticalAlignment(SwingConstants.CENTER);*/}
 					}
 					else if(source == player4Roll)
 					{
+						player1Dice.setVisible(false);
+						player2Dice.setVisible(false);
+						player3Dice.setVisible(false);
+						player4Dice.setVisible(true);
 						Player.addRoll(4);
 						Player.testAdd(4, x);
 						if(Player.returnSumPlayer(4) >= 20 && won == false)
@@ -388,34 +421,39 @@ public class GamePanel extends JPanel{
 							Player.addGame();
 							player4Score.setText("Spiderman:" + Player.returnSumPlayer(4));
 							introLabel.setText("SpiderMan Wins!");
-							introLabel.setFont(new Font("Serif", Font.BOLD, 80));
-							introLabel.setHorizontalAlignment(SwingConstants.CENTER);
-							introLabel.setVerticalAlignment(SwingConstants.CENTER);
+							player4Balloon.setVisible(true);
+							introLabel.setForeground(new Color(255, 255, 255));
+							introLabel.setFont(new Font("Marker Felt", Font.PLAIN, 32));
 							won = true;
 							Player.addWin(4);
 							Player.setRanks(4, 1);
 							Player.adjustRanks(4);
 						}
-						else{
+						else
 							player4Score.setText("Spiderman:" + Player.returnSumPlayer(4));
-							/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-									+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-							test.setFont(new Font("Serif", Font.BOLD, 30));
-							test.setHorizontalAlignment(SwingConstants.CENTER);
-							test.setVerticalAlignment(SwingConstants.CENTER);*/}
 					}
 					else if(source == resetButton)
 					{
+						player1Dice.setVisible(false);
+						player2Dice.setVisible(false);
+						player3Dice.setVisible(false);
+						player4Dice.setVisible(false);
+						
+						player1Balloon.setVisible(false);
+						player2Balloon.setVisible(false);
+						player3Balloon.setVisible(false);
+						player4Balloon.setVisible(false);
+						
 						player1Score.setText(" " + Player.returnResetSum(1));
 						player2Score.setText(" " + Player.returnResetSum(2));
 						player3Score.setText(" " + Player.returnResetSum(3));
 						player4Score.setText(" " + Player.returnResetSum(4));
 						won = false;
-						introLabel.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
-									+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
-						introLabel.setFont(new Font("Serfi", Font.BOLD,10));
-						introLabel.setHorizontalAlignment(SwingConstants.CENTER);
-						introLabel.setVerticalAlignment(SwingConstants.CENTER);
+						String  sText  = "<html>Instructions: Roll the die, if the die rolls to be even then the number is <br/> "
+								+ "added on, otherwise if the die shows to be odd nothing is added. <br/> The first to 20 pops the balloon and wins!</html>";
+						introLabel.setText (sText);
+						introLabel.setForeground(new Color(255, 255, 255));
+						introLabel.setFont(new Font("Marker Felt", Font.PLAIN, 15));
 					}
 					
 					updateUI();

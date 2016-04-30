@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -13,15 +14,16 @@ import javax.swing.JRadioButton;
  
 /** CSE 360 Project - BalloonGame class
  * @author PopItUp
- * Description: BalloonGame extends JApplet and acts as the main setup for the game. It sets out the
- * 			card layout and navigations between panels.
+ * Description: BalloonGame extends JApplet and acts as the main
+ *				panel to control the CardLayout panel which switches
+ *				once a difficulty is specified or area is specified
  * 
  */
 @SuppressWarnings("serial")
 public class BalloonGame extends JApplet
 {
 	//private instance variables declared 
-	private final int WIDTH = 2000, HEIGHT = 1000;
+	private final int WIDTH = 700, HEIGHT = 500;
 	private JPanel cards, wholePanel;
 	private StartPanel start;
 	private GamePanel game; 
@@ -29,11 +31,7 @@ public class BalloonGame extends JApplet
 	private JRadioButton begin, home, statistics;
 
 	
-/** init
- * @author PopItUp
- * Description: Init will act as the constructor for the java applet to be initialized.
- * 
- */
+/** init - constructor that allows for the java applet to be initialized  **/
  public void init()
   {
     setSize (WIDTH, HEIGHT);
@@ -47,11 +45,16 @@ public class BalloonGame extends JApplet
     wholePanel = new JPanel();
 	
 	begin = new JRadioButton("Start!");
-	begin.setFont(new Font("Serif", Font.BOLD, 30));
+	begin.setForeground(Color.WHITE);
+	begin.setFont(new Font("Marker Felt", Font.PLAIN, 23));
+	
 	home = new JRadioButton("Go Back!");
-	home.setFont(new Font("Serif", Font.BOLD, 30));
+	home.setForeground(Color.WHITE);
+	home.setFont(new Font("Marker Felt", Font.PLAIN, 23));
+	
 	statistics = new JRadioButton("Statistics!");
-	statistics.setFont(new Font("Serif", Font.BOLD, 30));
+	statistics.setForeground(Color.WHITE);
+	statistics.setFont(new Font("Marker Felt", Font.PLAIN, 23));
 	
 	ButtonGroup group = new ButtonGroup();
 	group.add(begin);
@@ -68,6 +71,7 @@ public class BalloonGame extends JApplet
 	wholePanel.add(home);
 	wholePanel.add(begin);
 	wholePanel.add(statistics);
+	wholePanel.setBackground(new Color(51, 153, 255));
 	home.setVisible(false);
 	
 	this.setLayout(new BorderLayout());
@@ -82,11 +86,7 @@ public class BalloonGame extends JApplet
 	card1.show(cards, "StartPanel");
 		
   }
-  
- /** RadioButtonListener will keep track of when the radio button has been pressed, and will then open whatever panel the player wishes to navigate to.
-	 * @author PopItUp
-	 * @param event - The event in which a radio button is chosen
-	 */
+ /** RadioButtonListener - class that uses the ActionListener in order to record when a radio button is clicked **/
 	 private class RadioButtonListener implements ActionListener
 	 {
 	  public void actionPerformed(ActionEvent event)
