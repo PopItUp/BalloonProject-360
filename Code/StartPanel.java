@@ -14,6 +14,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
+/** CSE 360 Project - StartPanel class
+	 * @author PopItUp
+	 * Description: StartPanel extends JPanel and displays the home screen of the game in
+	 * 			which players can start the game or navigate to the statistics
+	 * 			page.
+	 * 
+	 */
 public class StartPanel extends JPanel {
 	int count = 0;
 	ArrayList<String> players = new ArrayList<String>();
