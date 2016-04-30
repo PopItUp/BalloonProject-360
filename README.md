@@ -3,6 +3,8 @@
 **PopItUp** is a fun and suspenseful game to test your dice rolling skills! 
 
 **Game Description:** This is a dice game with 4 players. Using dice, the player's goal is to pop a balloon. All the players play together. Whomever pops the balloon first wins. When the time starts, 4 players start rolling their dice. If the players role a 1, 3, 5 the ballon does not grow. However, when they roll a 2, 4, 6 the balloon expands by their corresponding number. When the balloon grows 20 times bigger the balloon bursts. So, whoever bursts the balloon first wins!
+
+**Execute Code:** The BalloonGame class must be run to have the code execute.
  
 
 Check out our **website** at http://popitup.github.io
