@@ -4,12 +4,20 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
 public class StartPanel extends JPanel {
+	int count = 0;
+	ArrayList<String> players = new ArrayList<String>();
+	private String playerText;
 	private JTextField userTextField, passTextField;
 	private JLabel titleLabel, balloonGif, startLabel, userLabel, passLabel, hiLabel; 
 	private JButton loginButton; 
@@ -137,6 +145,62 @@ public class StartPanel extends JPanel {
 					.addContainerGap(323, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
+		
+		ButtonListener listener = new ButtonListener();
+		loginButton.addActionListener(listener);
+		userTextField.addActionListener(listener);
+		passTextField.addActionListener(listener);
 
+	}
+	
+	private class ButtonListener implements ActionListener
+	{
+		public void actionPerformed (ActionEvent event)
+		{	
+			count++;
+			playerText += ",";
+			playerText += userTextField.getText();
+			playerText += "," + passTextField.getText();
+			//System.out.println(playerText);
+			
+			//players.add(playerText);
+			
+			Object source = event.getSource();
+			if(source == loginButton)
+			{
+				loginButton.setText("logout");
+				//loginButton.setText("logout");
+				String[] names = playerText.split(",");
+				hiLabel.setText("Hi, " + names[1]);
+			
+				if(player1Radio.isSelected())
+				{
+					count++;
+					players.add(count + "Ironman");
+					player1Radio.setVisible(false);
+				}
+				if(player2Radio.isSelected())
+				{
+					count++;
+					players.add(count + "Captain America");
+					player2Radio.setVisible(false);
+				}
+				if(player3Radio.isSelected())
+				{
+					count++;
+					players.add(count + "Black Widow");
+					player3Radio.setVisible(false);
+				}
+				if(player4Radio.isSelected())
+				{
+					count++;
+					players.add(count + "Spiderman");
+					player4Radio.setVisible(false);
+				}
+				
+			//	GamePanel panel = new GamePanel(players);
+				BalloonGame.names(players);
+			}
+		}
 	}
 }
