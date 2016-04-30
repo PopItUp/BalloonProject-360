@@ -13,13 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-/** CSE 360 Project - StartPanel class
- * @author PopItUp
- * Description: StartPanel extends JPanel and is where the first screen is showed. It
- * 			allows the user to enter in a name and then go start or to the
- * 			statistics panel.
- * 
- */
 public class StartPanel extends JPanel {
 	int count = 0;
 	ArrayList<String> players = new ArrayList<String>();
@@ -49,7 +42,7 @@ public class StartPanel extends JPanel {
 		passTextField = new JTextField();
 		passTextField.setColumns(10);
 		
-		loginButton = new JButton("Login");
+		loginButton = new JButton("Submit");
 		
 		userLabel = new JLabel("Enter your name:\n");
 		userLabel.setForeground(Color.WHITE);
@@ -124,10 +117,7 @@ public class StartPanel extends JPanel {
 		passTextField.addActionListener(listener);
 
 	}
-	/** ButtonListener will keep track of the name that is inputted.
-	 * @author PopItUp
-	 * @param event - The event in which a name is entered into the textfield.
-	 */
+	
 	private class ButtonListener implements ActionListener
 	{
 		public void actionPerformed (ActionEvent event)

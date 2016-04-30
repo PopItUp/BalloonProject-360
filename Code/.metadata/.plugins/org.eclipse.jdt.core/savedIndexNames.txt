@@ -1,2 +1,0 @@
-INDEX VERSION 1.127+C:\Users\Michaela\Documents\CSE 360\PopItUp\Code\.metadata\.plugins\org.eclipse.jdt.core
-1713603073.index

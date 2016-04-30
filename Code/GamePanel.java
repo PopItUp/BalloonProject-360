@@ -1,6 +1,5 @@
 import java.awt.Color;
 import java.awt.Font;
-//import GamePanel.ButtonListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -30,11 +29,9 @@ public class GamePanel extends JPanel{
 	private JLabel introLabel, player1Score, player2Score, player3Score, player4Score;
 	private JLabel player1Balloon, player2Balloon, player3Balloon, player4Balloon; 
 	private JLabel player1Dice, player2Dice, player3Dice, player4Dice; 
-	private JButton player1Roll, player2Roll, player3Roll, player4Roll, resetButton, logoutButton;
+	private JButton player1Roll, player2Roll, player3Roll, player4Roll, resetButton;
 	
-	/** GamePanel - Constructor
- 	* Creates the gamepanel and initializes the JLabels, JButtons, and JPanels. 
- 	*/
+	
 	public GamePanel() {
 		setBackground(new Color(51, 153, 255));
 		
@@ -51,7 +48,6 @@ public class GamePanel extends JPanel{
 		player4Panel.setBackground(new Color(255, 204, 102));
 		
 		resetButton = new JButton("Reset");
-		logoutButton = new JButton("Logout");
 		introLabel = new JLabel("New label");
 		
 		player1Label = new JLabel("Player 1");
@@ -137,8 +133,7 @@ public class GamePanel extends JPanel{
 							.addComponent(resetButton)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(introLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(logoutButton)))
+							.addPreferredGap(ComponentPlacement.UNRELATED)))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -148,7 +143,6 @@ public class GamePanel extends JPanel{
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(logoutButton)
 								.addComponent(resetButton)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(28)

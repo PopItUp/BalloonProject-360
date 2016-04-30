@@ -17,18 +17,12 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/** CSE 360 Project - Statistics class
- * @author PopItUp
- * Description: Statistics extends JPanel and it is the panel that shows the statistics. It
- * 			contains various statistics that the user can look at and compare with
- * 			other players scores.
- */
 public class StatisticsPanel extends JPanel {
 	
 	/**
 	 * Create the panel.
 	 */
-	private JButton logoutButton, refreshButton; 
+	private JButton refreshButton; 
 	private JLabel statsLabel, rollLabel, rankingLabel, averageLabel; 
 	private JLabel player1Label, player2Label, player3Label, player4Label;
 	private JLabel player1Rolls, player2Rolls, player3Rolls, player4Rolls;
@@ -38,7 +32,6 @@ public class StatisticsPanel extends JPanel {
 	public StatisticsPanel() {
 		setBackground(new Color(51, 153, 255));
 		
-		logoutButton = new JButton("Logout");
 		refreshButton = new JButton("Refresh Statistics\n");
 		
 		statsLabel = new JLabel("Statistics");
@@ -128,7 +121,6 @@ public class StatisticsPanel extends JPanel {
 					.addGap(279)
 					.addComponent(statsLabel, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
 					.addGap(205)
-					.addComponent(logoutButton)
 					.addGap(21))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(115)
@@ -183,7 +175,6 @@ public class StatisticsPanel extends JPanel {
 					.addGap(14)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(logoutButton)
 							.addGap(66))
 						.addComponent(statsLabel, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
@@ -239,9 +230,9 @@ public class StatisticsPanel extends JPanel {
 		refreshButton.addActionListener(listener);
 	}
 	
-	/** ButtonListener will keep track of when the "refreshButton' JButton has been pressed, and will then update all the statistics for each player from the most recent game.
+	/** ButtonListener will keep track of when the "victory' JButton has been pressed, and will then update all the statistics for each player from the most recent game.
 	 * @author PopItUp
-	 * @param event - The event in which the "refreshButton" JButton is pressed
+	 * @param event - The event in which the "victory" JButton is pressed
 	 */
 	private class ButtonListener implements ActionListener
 	{
