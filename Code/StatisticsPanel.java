@@ -17,6 +17,12 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** CSE 360 Project - Statistics class
+ * @author PopItUp
+ * Description: Statistics extends JPanel and it is the panel that shows the statistics. It
+ * 			contains various statistics that the user can look at and compare with
+ * 			other players scores.
+ */
 public class StatisticsPanel extends JPanel {
 	
 	/**
@@ -233,9 +239,9 @@ public class StatisticsPanel extends JPanel {
 		refreshButton.addActionListener(listener);
 	}
 	
-	/** ButtonListener will keep track of when the "victory' JButton has been pressed, and will then update all the statistics for each player from the most recent game.
+	/** ButtonListener will keep track of when the "refreshButton' JButton has been pressed, and will then update all the statistics for each player from the most recent game.
 	 * @author PopItUp
-	 * @param event - The event in which the "victory" JButton is pressed
+	 * @param event - The event in which the "refreshButton" JButton is pressed
 	 */
 	private class ButtonListener implements ActionListener
 	{
