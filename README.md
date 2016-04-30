@@ -12,7 +12,7 @@ Check out our **website** at http://popitup.github.io
 
 The following functionality will be completed:
 
-Unregistered Users:
+Users:
 - [ ] As an user, I want to be able to register as a player so my statistics can be recorded.
 - [ ] As an user, I want to be able to play the game in order to have fun.
 - [ ] As an user, I want to be able to roll the die so I can increment my score.
@@ -31,7 +31,7 @@ Administrator:
 Database:
 - [ ] As a database, I want to be able to store players’ statistics so they can access their latest progress in the game.
 - [ ] As a database, I want to be able to refresh players’ statistics when the administrator makes changes to the statistics. 
-- [ ] As a database, I want to be able to calculate players’ rankings from their statistics so they can gauge their progress among          other players.
+- [ ] As a database, I want to be able to calculate players’ rankings from their statistics so they can gauge their progress among other players.
 
 ## Use Case Diagram
 
@@ -46,7 +46,7 @@ Group Project for CSE360 - Intro to Software Engineering
 
 ## License
 
-    Copyright [2016] [Anisha Gupta, Jorge Roldan, Akhila Murella, Michaela Foote]
+    Copyright [2016] [Anisha Gupta, Jorge Roldan, Akhila Murella, Michaela Foote, Bhavana Chinta]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
