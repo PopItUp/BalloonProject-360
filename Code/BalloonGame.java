@@ -30,7 +30,11 @@ public class BalloonGame extends JApplet
 	private JRadioButton begin, home, statistics;
 
 	
-/** init - constructor that allows for the java applet to be initialized  **/
+/** init
+ * @author PopItUp
+ * Description: Init will act as the constructor for the java applet to be initialized.
+ * 
+ */
  public void init()
   {
     setSize (WIDTH, HEIGHT);
@@ -79,7 +83,11 @@ public class BalloonGame extends JApplet
 	card1.show(cards, "StartPanel");
 		
   }
- /** RadioButtonListener - class that uses the ActionListener in order to record when a radio button is clicked **/
+  
+ /** RadioButtonListener will keep track of when the radio button has been pressed, and will then open whatever panel the player wishes to navigate to.
+	 * @author PopItUp
+	 * @param event - The event in which a radio button is chosen
+	 */
 	 private class RadioButtonListener implements ActionListener
 	 {
 	  public void actionPerformed(ActionEvent event)
