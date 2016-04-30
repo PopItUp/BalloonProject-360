@@ -1,16 +1,30 @@
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
 import java.awt.Color;
+import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+//import GamePanel.ButtonListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel{
 
 	/**
 	 * Create the panel.
 	 */
+	ArrayList<String> players = new ArrayList<String>();
+	private boolean won = false;
 	private JPanel player1Panel, player2Panel, player3Panel, player4Panel; 
 	private JLabel player1Label, player2Label, player3Label, player4Label; 
 	private JLabel introLabel, player1Score, player2Score, player3Score, player4Score;
@@ -260,6 +274,142 @@ public class GamePanel extends JPanel {
 		);
 		player1Panel.setLayout(gl_player1Panel);
 		setLayout(groupLayout);
+		
+		ButtonListener listener = new ButtonListener();
+		player1Roll.addActionListener(listener);
+		player2Roll.addActionListener(listener);
+		player3Roll.addActionListener(listener);
+		player4Roll.addActionListener(listener);
+	    resetButton.addActionListener(listener);
+	}
+		
+	    /** ButtonListener - class that implements ActionListener to account for button clicks **/ 
+		private class ButtonListener implements ActionListener
+			{
+				public void actionPerformed (ActionEvent event)
+				{
+					int x = (int)(Math.random() * 10);
+					Object source = event.getSource();
+					if(source == player1Roll)
+					{
+						Player.addRoll(1);
+						Player.testAdd(1, x);
+						if(Player.returnSumPlayer(1) >= 20 && won == false)
+						{
+							Player.addGame();
+							//System.out.println("I HATE YOU");
+							//System.out.println("BITCH PLEASE: " + one);
+							player1Score.setText("Iron Man:" + Player.returnSumPlayer(1));
+							introLabel.setText("Iron Man WINS!");
+							introLabel.setFont(new Font("Serif", Font.BOLD, 80));
+							introLabel.setHorizontalAlignment(SwingConstants.CENTER);
+							introLabel.setVerticalAlignment(SwingConstants.CENTER);
+							won = true;
+							Player.addWin(1);
+							Player.setRanks(1, 1);
+							Player.adjustRanks(1);
+						}
+						else{
+							player1Score.setHorizontalAlignment(SwingConstants.CENTER);
+							player1Score.setVerticalAlignment(SwingConstants.CENTER);
+							player1Score.setText("Ironman:" + Player.returnSumPlayer(1));
+							/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+					+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+							test.setFont(new Font("Serif", Font.BOLD, 30));
+							test.setHorizontalAlignment(SwingConstants.CENTER);
+							test.setVerticalAlignment(SwingConstants.CENTER);*/}
+					}
+					else if(source == player2Roll)
+					{
+						Player.addRoll(2);
+						Player.testAdd(2, x);
+						if(Player.returnSumPlayer(2) >= 20 && won == false)
+						{
+							Player.addGame();
+							player2Score.setText("Captain America:" + Player.returnSumPlayer(2));
+							introLabel.setText("Captain America WINS!");
+							introLabel.setFont(new Font("Serif", Font.BOLD, 80));
+							introLabel.setHorizontalAlignment(SwingConstants.CENTER);
+							introLabel.setVerticalAlignment(SwingConstants.CENTER);
+							won = true;
+							Player.addWin(2);
+							Player.setRanks(2, 1);
+							Player.adjustRanks(2);
+						}	
+						else{
+							player2Score.setText("Captain America:" + Player.returnSumPlayer(2));
+							/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+									+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+							test.setFont(new Font("Serif", Font.BOLD, 30));
+							test.setHorizontalAlignment(SwingConstants.CENTER);
+							test.setVerticalAlignment(SwingConstants.CENTER);*/}
+					}
+					else if(source == player3Roll)
+					{
+						Player.addRoll(3);
+						Player.testAdd(3, x);
+						if(Player.returnSumPlayer(3) >= 20 && won == false)
+						{
+							Player.addGame();
+							player3Score.setText("Black Widow:" + Player.returnSumPlayer(3));
+							introLabel.setText("BlackWidow Wins!!");
+							introLabel.setFont(new Font("Serif", Font.BOLD, 80));
+							introLabel.setHorizontalAlignment(SwingConstants.CENTER);
+							introLabel.setVerticalAlignment(SwingConstants.CENTER);
+							won = true;
+							Player.addWin(3);
+							Player.setRanks(3, 1);
+							Player.adjustRanks(3);
+						}
+						else{
+							player3Score.setText("Black Widow:"  + Player.returnSumPlayer(3));
+							/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+									+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+							test.setFont(new Font("Serif", Font.BOLD, 30));
+							test.setHorizontalAlignment(SwingConstants.CENTER);
+							test.setVerticalAlignment(SwingConstants.CENTER);*/}
+					}
+					else if(source == player4Roll)
+					{
+						Player.addRoll(4);
+						Player.testAdd(4, x);
+						if(Player.returnSumPlayer(4) >= 20 && won == false)
+						{
+							Player.addGame();
+							player4Score.setText("Spiderman:" + Player.returnSumPlayer(4));
+							introLabel.setText("SpiderMan Wins!");
+							introLabel.setFont(new Font("Serif", Font.BOLD, 80));
+							introLabel.setHorizontalAlignment(SwingConstants.CENTER);
+							introLabel.setVerticalAlignment(SwingConstants.CENTER);
+							won = true;
+							Player.addWin(4);
+							Player.setRanks(4, 1);
+							Player.adjustRanks(4);
+						}
+						else{
+							player4Score.setText("Spiderman:" + Player.returnSumPlayer(4));
+							/*test.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+									+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+							test.setFont(new Font("Serif", Font.BOLD, 30));
+							test.setHorizontalAlignment(SwingConstants.CENTER);
+							test.setVerticalAlignment(SwingConstants.CENTER);*/}
+					}
+					else if(source == resetButton)
+					{
+						player1Score.setText(" " + Player.returnResetSum(1));
+						player2Score.setText(" " + Player.returnResetSum(2));
+						player3Score.setText(" " + Player.returnResetSum(3));
+						player4Score.setText(" " + Player.returnResetSum(4));
+						won = false;
+						introLabel.setText("Instructions: Roll the die, if the die rolls to be even then the number is\n "
+									+ "added on, otherwise if the die shows to be odd nothing is added. The first to 20 pops the balloon and wins!");
+						introLabel.setFont(new Font("Serfi", Font.BOLD,10));
+						introLabel.setHorizontalAlignment(SwingConstants.CENTER);
+						introLabel.setVerticalAlignment(SwingConstants.CENTER);
+					}
+					
+					updateUI();
+				}
+			}
 
 	}
-}
