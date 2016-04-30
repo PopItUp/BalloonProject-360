@@ -13,9 +13,8 @@ import javax.swing.JRadioButton;
  
 /** CSE 360 Project - BalloonGame class
  * @author PopItUp
- * Description: BalloonGame extends JApplet and acts as the main
- *				panel to control the CardLayout panel which switches
- *				once a difficulty is specified or area is specified
+ * Description: BalloonGame extends JApplet and acts as the main setup for the game. It sets out the
+ * 			card layout and navigations between panels.
  * 
  */
 @SuppressWarnings("serial")
