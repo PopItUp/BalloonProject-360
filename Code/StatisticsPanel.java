@@ -17,6 +17,13 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** CSE 360 Project - Statistics class
+ * @author PopItUp
+ * Description: Statistics extends JPanel and determines the statistics
+ * 			of different things such as average rolls per game
+ * 			,number of rolls, and ranking.
+ * 
+ */
 public class StatisticsPanel extends JPanel {
 	
 	/**
